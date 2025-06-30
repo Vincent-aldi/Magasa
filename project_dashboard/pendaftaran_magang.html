@@ -42,7 +42,69 @@
                 <a href="../home_page.html"><button class="logout-button">LOGOUT</button></a>
             </header>
 
-            
+            <div class="content-area">
+                <div class="filter-section card">
+                  <h2>Pilih Tempat Magang</h2>
+                  <div class="filters">
+                    <div class="filter-group">
+                      <label for="jurusan">Jurusan</label>
+                      <select id="Jurusan">
+                        <option>Jurusan</option>
+                        <option>Pemrograman Web</option>
+                        <option>Animation</option>
+                        <option>Networking</option>
+                      </select>
+                    </div>
+                    <div class="filter-group">
+                      <label for="magang">Jenis Pekerjaan</label>
+                      <select id="magang">
+                        <option>Jenis Pekerjaan</option>
+                        <option>Frontend Developer</option>
+                        <option>Backend Developer</option>
+                        <option>Fullstack Developer</option>
+                      </select>
+                    </div>
+                    <div class="filter-group">
+                      <label for="lokasi">Masukkan lokasi</label>
+                      <input type="text" id="lokasi" placeholder="Masukkan lokasi">
+                    </div>
+                    <button class="search-button"><i class="fas fa-search"></i>Cari</button>
+                  </div>
+                </div>
+        
+                <div class="recommendations-section">
+                  <div class="job-list-container">
+                    <h3>Rekomendasi Pekerjaan</h3>
+                    <div class="job-list">
+                      <div class="job-card card" data-job-id="job1">
+                        <!-- <div class="company-logo">
+                          <img src="company-logo-placeholder.png" alt="Company Logo">
+                        </div> -->
+                        <div class="job-info">
+                          <h4>Frontend Developer</h4>
+                          <p class="company-name">PT.Jaya Abadi</p>
+                          <p class="location"><i class="fas fa-map-marker-alt"></i> Yogyakarta, Kota Gede</p>
+                          <p class="program">Pemrograman Web</p>
+                          <a href="#" class="read-more">Read More</a>
+                        </div>
+                      </div>
+                      <div class="job-card card" data-job-id="job2">
+                        <!-- <div class="company-logo">
+                          <img src="company-logo-placeholder.png" alt="Company Logo">
+                        </div> -->
+                        <div class="job-info">
+                          <h4>Fullstack Developer</h4>
+                          <p class="company-name">PT.Kom Indonesia</p>
+                          <p class="location"><i class="fas fa-map-marker-alt"></i> Yogyakarta, Sleman</p>
+                          <p class="program">Pemrograman Web</p>
+                          <a href="#" class="read-more">Read More</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
         </main>
     </div>
 </body>
