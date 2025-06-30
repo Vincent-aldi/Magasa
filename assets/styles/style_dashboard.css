@@ -1,0 +1,849 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --sidebar-bg: #fff;
+    --main-bg: #F8F8F8; /* Light gray for main content background */
+    --header-bg: #fff; /* White for header */
+    --primary-green: #6FD29A; /* Green for active links and progress bar */
+    --text-dark: #333;
+    --text-light-gray: #666;
+    --border-light-gray: #E0E0E0;
+    --card-bg: #fff;
+    --poppins: 'Poppins', sans-serif;
+    --logout-red: #E74C3C; /* Red for logout button */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--poppins);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--main-bg);
+    min-height: 100vh;
+    overflow-y: auto; /* Prevent body scrollbar */
+    display: flex;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 280px; /* Lebar sidebar */
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000; /* Ensure sidebar is above other content on mobile */
+    position: relative; /* For the absolute positioning of header logo on mobile */
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light-gray);
+    margin-bottom: 20px;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+.navbar-logo .logo-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.profile-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light-gray);
+}
+
+.profile-summary .profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-green); /* Border around profile pic */
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--text-dark);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.sidebar-nav ul li a i {
+    margin-right: 12px;
+    font-size: 1.1rem;
+    color: var(--text-light-gray); /* Icon color */
+}
+
+.sidebar-nav ul li a.active-link {
+    background-color: rgba(111, 210, 154, 0.2); /* Light green background */
+    color: var(--primary-green);
+}
+
+.sidebar-nav ul li a.active-link i {
+    color: var(--primary-green); /* Active icon color */
+}
+
+.sidebar-nav ul li a:not(.active-link):hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar-nav ul li .dropdown-arrow {
+    margin-left: auto; /* Push arrow to the right */
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1; /* Take up remaining space */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-bg);
+    overflow-y: auto;
+}
+
+.main-header {
+    background-color: var(--header-bg);
+    padding: 20px 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: flex-end; /* Push logout button to the right */
+    align-items: center;
+    min-height: 70px; /* Ensure minimum height */
+}
+
+.header-logo-mobile {
+    display: none; /* Hidden by default, shown on mobile */
+    position: absolute; /* Positioned relative to sidebar on mobile */
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    z-index: 1001; /* Ensure it's above other elements */
+    color: var(--text-dark); /* Adjust color for mobile header logo */
+}
+
+.logout-button {
+    background-color: var(--logout-red);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.logout-button:hover {
+    background-color: #C0392B; /* Darker red on hover */
+}
+
+.content-area {
+    padding: 40px;
+    flex-grow: 1; /* Allow content area to fill remaining space */
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+    grid-template-rows: auto auto auto; /* Rows will size based on content */
+    grid-template-areas:
+        "welcome welcome"
+        "profile detail"
+        "progress detail"; /* Define areas for layout */
+}
+
+.welcome-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    grid-area: welcome;
+    margin-bottom: 0; /* No extra margin here */
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+}
+
+.profile-card {
+    grid-area: profile;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-illustration-small {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px; /* Slight rounded corners */
+    object-fit: cover;
+}
+
+.profile-info h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.profile-info p {
+    font-size: 0.9rem;
+    color: var(--text-light-gray);
+    margin-bottom: 3px;
+}
+
+.detail-magang-card {
+    grid-area: detail;
+}
+
+.detail-magang-card h3,
+.progress-magang-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light-gray);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-field input[type="text"],
+.form-field textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--border-light-gray);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: var(--poppins);
+    outline: none;
+    background-color: #F7F7F7; /* Light gray background for readonly fields */
+    color: var(--text-dark);
+}
+
+.form-field textarea {
+    min-height: 100px;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.progress-magang-card {
+    grid-area: progress;
+}
+
+.status-selection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.status-selection label {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.status-selection input[type="radio"] {
+    margin-left: 5px;
+    transform: scale(1.1); /* Slightly larger radio buttons */
+}
+
+.progress-percentage-label {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.progress-circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.progress-circle {
+    width: 150px; /* Size of the circle */
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary-green) 87%, var(--border-light-gray) 0%); /* 87% filled */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.progress-circle-inner {
+    width: 130px; /* Size of inner circle for white background */
+    height: 130px;
+    background-color: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* daftarmagang */
+.content-area {
+    padding: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; /* Changed to column for stacking filter and recommendations */
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+}
+
+/* Filter Section */
+.filter-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.filter-section .filters {
+    display: flex;
+    gap: 20px; /* Space between filter groups */
+    align-items: flex-end; /* Align items at the bottom */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.filter-group {
+    flex: 1; /* Each filter group takes equal space */
+    min-width: 180px; /* Minimum width for each filter group */
+}
+
+.filter-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light-gray);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.filter-group select{
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--border-light-gray);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: var(--poppins);
+    outline: none;
+    background-color: #F7F7F7;
+    color: var(--text-dark);
+    -webkit-appearance: none; /* Remove default select arrow */
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23666%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+}
+
+.filter-group input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--border-light-gray);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: var(--poppins);
+    outline: none;
+    background-color: #F7F7F7;
+    color: var(--text-dark);
+}
+
+.search-button {
+    background-color: #2020f7;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-button:hover {
+    background-color: darken(#5a5af3, 10%);
+}
+
+/* Recommendations Section */
+.recommendations-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Job list on left, detail on right */
+    gap: 30px;
+    align-items: flex-start; /* Align top of grids */
+}
+
+/* .job-list-container {
+    /* No card class here as per image, just a container for list */
+
+
+.job-list-container h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-card {
+    padding: 20px;
+    cursor: pointer;
+    border: 1px solid transparent; /* Default transparent border */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start; /* Align content to the top */
+}
+
+.job-card.active-job {
+    border-color: var(--primary-green); /* Green border for active card */
+    background-color: #F0FFF0; /* Very light green background for active */
+    box-shadow: 0 5px 15px rgba(111, 210, 154, 0.1);
+}
+
+.job-card:hover {
+    border-color: var(--primary-green);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.job-card .company-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.job-card .job-info {
+    flex-grow: 1;
+    text-align: left; /* Ensure text aligns left within info block */
+}
+
+.job-card .job-info h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.job-card .job-info p {
+    font-size: 0.85rem;
+    color: var(--text-light-gray);
+    margin-bottom: 3px;
+}
+
+.job-card .job-info .location i {
+    margin-right: 5px;
+    font-size: 0.8rem;
+}
+
+.job-card .read-more {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--primary-green);
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.job-card .read-more:hover {
+    text-decoration: underline;
+}
+
+/* Job Detail Container */
+.job-detail-container {
+    position: sticky; /* Make it sticky */
+    top: 20px; /* Stick to top with some offset */
+    max-height: calc(100vh - 80px); /* Adjust max-height to fit viewport */
+    overflow-y: auto; /* Enable scrolling for job detail */
+    padding-bottom: 20px; /* Add some padding at the bottom */
+}
+
+.job-detail-card {
+    padding: 30px; /* Adjust padding as needed */
+}
+
+.job-detail-card .company-logo-detail {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.job-detail-card .company-logo-detail img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.job-detail-card .job-info-detail {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.job-detail-card .job-info-detail h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.job-detail-card .job-info-detail p {
+    font-size: 0.95rem;
+    color: var(--text-light-gray);
+    margin-bottom: 3px;
+}
+
+.job-detail-card .job-info-detail .location i {
+    margin-right: 5px;
+    font-size: 0.9rem;
+}
+
+.job-description {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-light-gray);
+    margin-bottom: 25px;
+}
+
+.job-description p {
+    margin-bottom: 15px;
+}
+
+.job-description ol {
+    margin-left: 20px;
+    list-style-type: decimal;
+    margin-bottom: 15px;
+}
+
+.job-description ol li {
+    margin-bottom: 8px;
+}
+
+.apply-button {
+    background-color: var(--apply-button-red);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    width: 100%; /* Full width button */
+    text-align: center;
+}
+
+.apply-button:hover {
+    background-color: #D64535; /* Darker red on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 80px; /* Collapsed sidebar width */
+        padding: 20px 10px;
+    }
+
+    .sidebar-header {
+        display: none; /* Hide header on collapsed sidebar */
+    }
+
+    .profile-summary {
+        display: none; /* Hide profile summary on collapsed sidebar */
+    }
+
+    .sidebar-nav ul li a {
+        justify-content: center; /* Center icons */
+        font-size: 0.8rem;
+        padding: 12px 0px; /* Adjust padding */
+        text-align: center;
+    }
+
+    .sidebar-nav ul li a i {
+        margin-right: 0;
+        margin-bottom: 5px; /* Space between icon and text */
+        display: block; /* Make icon take full width */
+    }
+
+    .sidebar-nav ul li a .dropdown-arrow {
+        display: none; /* Hide dropdown arrows */
+    }
+
+    .sidebar .logo-text {
+        display: none; /* Hide logo text */
+    }
+
+    .sidebar-nav ul li a:hover .logo-text,
+    .sidebar-nav ul li a.active-link .logo-text {
+        display: none; /* Ensure text remains hidden on hover/active */
+    }
+
+    .main-content {
+        margin-left: 0; /* No margin from sidebar */
+    }
+
+    .header-logo-mobile {
+        display: flex; /* Show mobile header logo */
+        position: static; /* Position normally within header */
+        margin-right: auto; /* Push logout button to the right */
+    }
+
+    .content-area {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-areas:
+            "welcome"
+            "profile"
+            "detail"
+            "progress"; /* Stack cards vertically */
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-info {
+        text-align: center;
+    }
+
+    .status-selection {
+        flex-wrap: wrap; /* Allow radio buttons to wrap */
+        justify-content: center;
+    }
+
+    .filter-section .filters {
+        flex-direction: column; /* Stack filters vertically */
+        align-items: stretch; /* Stretch to full width */
+    }
+
+    .filter-group {
+        width: 100%; /* Take full width */
+        min-width: unset; /* Remove min-width */
+    }
+
+    .search-button {
+        width: 100%; /* Full width button */
+    }
+
+    .recommendations-section {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 20px;
+    }
+
+    /* .job-list-container {
+        /* No specific changes needed, it will take full width */
+
+    .job-detail-container {
+        position: static; /* Remove sticky on mobile */
+        max-height: unset; /* Remove max-height */
+        overflow-y: visible; /* Allow content to flow naturally */
+    }
+
+    /* .job-detail-card {
+        /* No specific changes needed */
+    
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed; /* Fix sidebar on small screens */
+        height: 100%;
+        left: -80px; /* Hide sidebar by default */
+        transition: left 0.3s ease;
+    }
+
+    /* Add a class to show sidebar when needed (e.g., via a toggle button) */
+    /* .sidebar.active {
+        left: 0;
+    } */
+
+    .main-header {
+        padding: 15px 20px;
+    }
+
+    .logout-button {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+
+    .welcome-title {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .profile-info h2 {
+        font-size: 1.1rem;
+    }
+
+    .profile-info p {
+        font-size: 0.8rem;
+    }
+
+    .detail-magang-card h3,
+    .progress-magang-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .form-field label {
+        font-size: 0.85rem;
+    }
+
+    .form-field input,
+    .form-field textarea {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+
+    .status-selection label {
+        font-size: 0.85rem;
+    }
+
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .progress-circle-inner {
+        width: 100px;
+        height: 100px;
+        font-size: 1.8rem;
+    }
+
+    .filter-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .filter-group label {
+        font-size: 0.85rem;
+    }
+
+    .filter-group select,
+    .filter-group input {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+
+    .search-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .job-list-container h3 {
+        font-size: 1.1rem;
+    }
+
+    .job-card {
+        padding: 15px;
+    }
+
+    .job-card .company-logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .job-card .job-info h4 {
+        font-size: 1rem;
+    }
+
+    .job-card .job-info p,
+    .job-card .read-more {
+        font-size: 0.8rem;
+    }
+
+    .job-detail-card .company-logo-detail img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .job-detail-card .job-info-detail h4 {
+        font-size: 1.2rem;
+    }
+
+    .job-detail-card .job-info-detail p {
+        font-size: 0.85rem;
+    }
+
+    .job-description {
+        font-size: 0.8rem;
+    }
+
+    .apply-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
