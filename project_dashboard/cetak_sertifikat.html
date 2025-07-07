@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../assets/styles/style_dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="navbar-logo">
+          <img src="../assets/images/cib_koding.png" alt="Magang Logo" class="logo-icon">
+          <span class="logo-text">Magasa</span>
+        </div>
+      </div>
+      <div class="profile-summary">
+        <img src="../assets/images/fp1.jpg" alt="Profile Picture" class="profile-pic">
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="account.html" class="nav-item has-dropdown active"><i class="fas fa-user-circle"></i> Account</a>
+          </li>
+          <li><a href="dashboard_main.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="pendaftaran_magang.html" class="nav-item has-dropdown"><i class="fas fa-clipboard-list"></i>
+              Pendaftaran Magang</a></li>
+          <li><a href="bimbingan.html" class="nav-item"><i class="fas fa-hands-helping"></i> Bimbingan</a></li>
+          <li><a href="laporan_magang.html" class="nav-item has-dropdown"><i class="fas fa-file-alt"></i> Laporan
+              Magang</a></li>
+          <li><a href="penilaian.html" class="nav-item"><i class="fas fa-star"></i> Penilaian</a></li>
+          <li><a href="cetak_sertifikat.html" class="nav-item active-link"><i class="fas fa-certificate"></i> Cetak Sertifikat</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="main-header">
+        <div class="navbar-logo header-logo-mobile">
+          <img src="../assets/images/cib_koding.png" alt="Magang Logo" class="logo-icon">
+          <span class="logo-text">Magasa</span>
+        </div>
+        <a href="../home_page.html"><button class="logout-button">LOGOUT</button></a>
+      </header>
+      <div class="content-area">
+        <h1>Cetak Sertifikat</h1>
+      
+        <div class="sertifikat-container">
+          <div class="sertifikat-preview-panel">
+            <h2>Preview Sertifikat</h2>
+            <div class="preview-box">
+             <img src="../assets/images/file-regular.svg" alt="Discription">
+            </div>
+          </div>
+      
+          <div class="sertifikat-opsi-pengesahan-panel">
+            <div class="opsi-cetak-section">
+              <h2>Opsi Cetak</h2>
+              <p>Sertifikat telah disetujui dan siap untuk dicetak.</p>
+              <div class="cetak-buttons-group">
+                <button class="download-pdf-btn">
+                  <span class="material-icons">Download PDF</span>
+                </button>
+                <button class="cetak-sertifikat-btn">
+                  <span class="material-icons">Cetak Sertifikat</span>
+                </button>
+              </div>
+            </div>
+      
+            <div class="riwayat-pengesahan-section">
+              <h2>Riwayat Pengesahan</h2>
+              <div class="approval-table-responsive">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Tanggal</th>
+                      <th>Pengesah</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>02/10/2023</td>
+                      <td>Pembimbing Perusahaan</td>
+                      <td><span class="status-badge disetujui">Disetujui</span></td>
+                    </tr>
+                    <tr>
+                      <td>05/10/2023</td>
+                      <td>Ketua Program Studi</td>
+                      <td><span class="status-badge disetujui">Disetujui</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../assets/styles/style_dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="navbar-logo">
+          <img src="../assets/images/cib_koding.png" alt="Magang Logo" class="logo-icon">
+          <span class="logo-text">Magasa</span>
+        </div>
+      </div>
+      <div class="profile-summary">
+        <img src="../assets/images/fp1.jpg" alt="Profile Picture" class="profile-pic">
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="account.html" class="nav-item has-dropdown active"><i class="fas fa-user-circle"></i> Account</a>
+          </li>
+          <li><a href="dashboard_main.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="pendaftaran_magang.html" class="nav-item has-dropdown"><i
+                class="fas fa-clipboard-list"></i> Pendaftaran Magang</a></li>
+          <li><a href="bimbingan.html" class="nav-item"><i class="fas fa-hands-helping"></i> Bimbingan</a></li>
+          <li><a href="laporan_magang.html" class="nav-item has-dropdown"><i class="fas fa-file-alt"></i> Laporan
+              Magang</a></li>
+          <li><a href="penilaian.html" class="nav-item active-link"><i class="fas fa-star"></i> Penilaian</a></li>
+          <li><a href="cetak_sertifikat.html" class="nav-item"><i class="fas fa-certificate"></i> Cetak Sertifikat</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="main-header">
+        <div class="navbar-logo header-logo-mobile">
+          <img src="../assets/images/cib_koding.png" alt="Magang Logo" class="logo-icon">
+          <span class="logo-text">Magasa</span>
+        </div>
+        <a href="../home_page.html"><button class="logout-button">LOGOUT</button></a>
+      </header>
+      <div class="content-area">
+        <h1>Penilaian Mahasiswa</h1>
+      
+        <div class="form-penilaian-section">
+          <h2>Form Penilaian</h2>
+          <div class="student-info">
+            <p>Vincentius Aldi Nugraha - <span>24.01.5142</span></p>
+            <p>Periode Magang: <span>01/07/2023 - 30/09/2023</span></p>
+          </div>
+      
+          <h3>Kriteria Penilaian:</h3>
+          <div class="rating-table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Aspek</th>
+                  <th>Nilai (1-100)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Kedisiplinan</td>
+                  <td><input type="number" min="1" max="100" placeholder="0-100"></td>
+                </tr>
+                <tr>
+                  <td>Tanggung Jawab</td>
+                  <td><input type="number" min="1" max="100" placeholder="0-100"></td>
+                </tr>
+                <tr>
+                  <td>Kualitas Kerja</td>
+                  <td><input type="number" min="1" max="100" placeholder="0-100"></td>
+                </tr>
+                <tr>
+                  <td>Inisiatif</td>
+                  <td><input type="number" min="1" max="100" placeholder="0-100"></td>
+                </tr>
+                <tr>
+                  <td>Kerjasama Tim</td>
+                  <td><input type="number" min="1" max="100" placeholder="0-100"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      
+          <div class="form-group-textarea">
+            <textarea placeholder="Masukan atau saran untuk Mahasiswa"></textarea>
+          </div>
+      
+          <button class="kirim-penilaian-btn">Kirim Penilaian</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../main.js"></script>
+</body>
+
+</html>

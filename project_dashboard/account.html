@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../assets/styles/style_account.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="navbar-logo">
+                    <img src="../assets/images/cib_koding.png" alt="Magang Logo" class="logo-icon">
+                    <span class="logo-text">Magasa</span>
+                </div>
+            </div>
+            <div class="profile-summary">
+                <img src="../assets/images/fp1.jpg" alt="Profile Picture" class="profile-pic">
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="account.html" class="nav-item has-dropdown active-link"><i class="fas fa-user-circle"></i> Account </a></li>
+                    <li><a href="dashboard_main.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="pendaftaran_magang.html" class="nav-item has-dropdown"><i class="fas fa-clipboard-list"></i> Pendaftaran Magang</a></li>
+                    <li><a href="bimbingan.html" class="nav-item"><i class="fas fa-hands-helping"></i> Bimbingan</a></li>
+                    <li><a href="laporan_magang.html" class="nav-item has-dropdown"><i class="fas fa-file-alt"></i> Laporan Magang</a></li>
+                    <li><a href="penilaian.html" class="nav-item"><i class="fas fa-star"></i> Penilaian</a></li>
+                    <li><a href="cetak_sertifikat.html" class="nav-item"><i class="fas fa-certificate"></i> Cetak Sertifikat</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="navbar-logo header-logo-mobile">
+                    <img src="../assets/images/cib_koding.png" alt="Magang Logo" class="logo-icon">
+                    <span class="logo-text">Magasa</span>
+                </div>
+                <a href="../home_page.html"><button class="logout-button">LOGOUT</button></a>
+            </header>
+
+            <div class="content-area">
+                <h1 class="profile-title">Profile</h1>
+
+                <div class="profile-overview card">
+                    <div class="profile-avatar-section">
+                        <div class="profile-avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <button class="upload-photo-button">
+                            <i class="fas fa-plus"></i> Upload Photo
+                        </button>
+                    </div>
+                    <div class="profile-basic-info">
+                        <h2>Vincentius Aldi Nugraha - 24.01.5142</h2>
+                        <p>D3 Teknik Informatika</p>
+                        <p>Semester 2</p>
+                    </div>
+                </div>
+
+                <div class="user-details-card card">
+                    <h3>User Details</h3>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Vincentius Aldi Nugraha" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label>Contact</label>
+                            <input type="text" placeholder="0838 - xxxx - xxxx" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Date of Birth</label>
+                            <input type="text" placeholder="19 Maret 2025" readonly>
+                        </div>
+                    </div>
+                    <div class="form-field full-width">
+                        <label>Address</label>
+                        <input type="text" placeholder="Bantul, Yogyakarta" readonly>
+                    </div>
+                    <div class="form-field full-width">
+                        <label>v.aldinugraha13@gmail.com</label>
+                        <input type="text" placeholder="v.aldinugraha13@gmail.com" readonly>
+                    </div>
+
+                    <button class="save-button">Simpan</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
