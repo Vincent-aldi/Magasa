@@ -1,0 +1,259 @@
+:root {
+    --primary-blue: #6A5ACD; /* Adjust to match the button color precisely */
+    --secondary-button-bg: #E0E0E0; /* Light gray for secondary button */
+    --text-dark: #333;
+    --text-light-gray: #666;
+    --background-gradient-start: #E6EEF9; /* Lighter blue/purple */
+    --background-gradient-end: #F5E8FB;   /* Lighter pink/purple */
+    --image-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: linear-gradient(135deg, var(--background-gradient-start), #84f1b1);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* To prevent scrollbar from decorative elements */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    position: relative; /* For decorative elements positioning */
+    overflow: hidden; /* Ensure rounded corners clip children */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #58be87; 
+}
+
+.logo-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    /* You might need to adjust the SVG fill color if it's not black by default */
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: relative; /* For decorative elements within this section */
+}
+
+.text-content {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 40px;
+}
+
+.text-content h1 {
+    font-size: 1.5rem;
+    color: #2929e9;
+    margin-bottom: 10px;
+}
+
+.text-content h2 {
+    font-size: 2.8rem; /* Adjust as needed */
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.text-content p {
+    font-size: 1.1rem;
+    color: var(--text-light-gray);
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.primary {
+    background-color: transparent; /* Latar belakang transparan */
+    color: #2929e9; /* Warna teks sama dengan warna border */
+    border: 2px solid #2929e9; /* Border dengan warna */
+    font-weight: 600;
+}
+
+.btn.primary:hover {
+    background-color: #2929e9; /* Latar belakang solid saat hover */
+    color: white; /* Teks putih saat hover */
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: transparent; /* Latar belakang transparan */
+    color: #27d678; /* Warna teks sama dengan warna border */
+    border: 2px solid #27d678; /* Border dengan warna */
+    font-weight: 600;
+}
+
+.btn.secondary:hover {
+    background-color: #27d678; /* Latar belakang solid saat hover */
+    color: white; /* Teks putih saat hover */
+    transform: translateY(-2px);
+}
+
+.image-content {
+    flex: 1;
+    min-width: 400px; /* Adjust based on image size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Ensure image is above some decorative elements */
+}
+
+.main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px; /* Rounded corners for the image */
+    box-shadow: 0 15px 40px var(--image-shadow);
+}
+
+/* Decorative Icons */
+.decorative-icon {
+    position: absolute;
+    font-size: 3rem; /* Adjust icon size */
+    color: rgba(106, 90, 205, 0.2); /* Semi-transparent primary color */
+    z-index: 0; /* Behind the main content */
+}
+
+.link-icon {
+    top: 50px;
+    right: 350px; /* Adjust position relative to the container */
+    transform: rotate(-20deg);
+}
+
+.code-icon {
+    top: 50px;
+    right: 50px;
+    font-size: 3.5rem;
+    color: rgba(106, 90, 205, 0.3);
+}
+
+.coin-icon {
+    bottom: 50px;
+    right: 150px;
+    font-size: 3.5rem;
+    color: rgba(255, 215, 0, 0.4); /* Gold coin color, semi-transparent */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .image-content {
+        min-width: unset;
+        width: 80%;
+    }
+
+    .decorative-icon {
+        font-size: 2.5rem;
+    }
+
+    .link-icon {
+        top: 20px;
+        right: 20px;
+        transform: none;
+    }
+
+    .code-icon {
+        top: 80px;
+        right: 80px;
+    }
+
+    .coin-icon {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .text-content h2 {
+        font-size: 2rem;
+    }
+
+    .text-content p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .decorative-icon {
+        display: none; /* Hide decorative icons on smaller screens for cleaner layout */
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
