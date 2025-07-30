@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
+  <link rel="icon" href="../assets/images/cib_koding.png">
   <link rel="stylesheet" href="../assets/styles/style_dashboard.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -24,12 +25,13 @@
       </div>
       <nav class="sidebar-nav">
         <ul>
-          <li><a href="account.html" class="nav-item has-dropdown active"><i class="fas fa-user-circle"></i> Account</a></li>
+          <li><a href="account.html" class="nav-item has-dropdown"><i class="fas fa-user-circle"></i> Account</a></li>
           <li><a href="dashboard_main.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
           <li><a href="pendaftaran_magang.html" class="nav-item has-dropdown active-link"><i class="fas fa-clipboard-list"></i> Pendaftaran Magang</a></li>
           <li><a href="bimbingan.html" class="nav-item"><i class="fas fa-hands-helping"></i> Bimbingan</a></li>
           <li><a href="laporan_magang.html" class="nav-item has-dropdown"><i class="fas fa-file-alt"></i> Laporan Magang</a></li>
           <li><a href="penilaian.html" class="nav-item"><i class="fas fa-star"></i> Penilaian</a></li>
+          <li><a href="Log_View.html" class="nav-item"><i class="fa-solid fa-eye"></i> View Magang</a></li>
           <li><a href="cetak_sertifikat.html" class="nav-item"><i class="fas fa-certificate"></i> Cetak Sertifikat</a></li>
         </ul>
       </nav>
@@ -76,7 +78,7 @@
 
         <div class="recommendations-section">
           <div class="job-list-container">
-            <h3>Rekomendasi Pekerjaan</h3>
+            <h3>Rekomendasi Magang</h3>
             <div class="job-list">
               <div class="job-card card" data-job-id="job1">
                 <div class="company-logo">
@@ -140,10 +142,84 @@
               </div>
             </div>
           </div>
+
+          <div class="notif-column">
+            <div class="notif-card card">
+              <h3>Cari Magang <i class="fas fa-info-circle info-icon"></i></h3>
+              <p>Silahkan cari pekerjaan magang yang sesuai dengan minat dan keahlian</p>
+            </div>
+          </div>
+
+          <div class="job-detail-panel" id="jobDetailPanel">
+            <div class="detail-header">
+              <div class="company-logo-large">
+                <img src="../assets/images/akasaair.png" alt="Company Logo">
+              </div>
+              <div class="detail-actions">
+                <span class="material-icons icon-button" id="closeDetailPanel"><i class="fa-solid fa-xmark"></i></span>
+              </div>
+            </div>
+          
+            <div class="detail-content">
+              <h2 class="detail-job-title">Frontend Developer</h2>
+              <p class="detail-company-name">PT.Jaya Abadi <a href="pendaftaran_magang.html" class="view-all-jobs">Lihat semua lowongan
+                  kerja</a></p>
+              <p class="detail-location">
+                <span class="material-icons"><i class="fa-solid fa-location-dot"></i></span> Kota Yogyakarta, Yogyakarta
+              </p>
+              <p class="detail-role">
+                <span class="material-icons"><i class="fa-regular fa-building"></i></span> Developer/Programmer
+              </p>
+              <p class="detail-type">
+                <span class="material-icons"><i class="fa-regular fa-clock"></i></span> Full time
+              </p>
+              <p class="detail-posted-info">
+                Posted 2 hari yang lalu • Pelamar cukup banyak
+              </p>
+          
+              <div class="detail-buttons">
+                <a href="form_pendaftaran_magang.html">
+                  <button class="apply-button">Ajukan Magang</button>
+                </a>
+              </div>
+          
+              <div class="section-title">
+                <h3>Bagaimana Anda cocok?</h3>
+              </div>
+              <ul class="benefit-list">
+                <li>Lingkungan kerja yang suportif dan kolaboratif</li>
+                <li>Peluang untuk pertumbuhan karier yang cepat</li>
+                <li>Kesempatan untuk mengadopsi teknologi baru dan berinovasi</li>
+                <li>Pelatihan internal dan pengembangan profesional berkelanjutan</li>
+              </ul>
+          
+              <div class="section-title">
+                <h3>Deskripsi Pekerjaan</h3>
+              </div>
+              <div class="job-description">
+                <p>Kami mencari seorang Frontend Developer yang berbakat dan bersemangat untuk bergabung dengan tim kami. Anda akan
+                bertanggung jawab untuk membangun antarmuka pengguna yang menarik dan responsif untuk aplikasi web kami, memastikan
+                pengalaman pengguna yang luar biasa. Anda akan bekerja sama dengan desainer UI/UX dan pengembang back-end untuk
+                menerjemahkan desain visual menjadi kode yang berfungsi penuh dan efisien.</p>
+              </div>
+          
+              <div class="section-title">
+                <h3>Skill</h3>
+              </div>
+              <div class="skill-tags">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">React JS</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
   </div>
+  <script src="../main.js"></script>
 </body>
 
 </html>

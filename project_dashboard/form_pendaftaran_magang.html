@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pendaftaran Magang</title>
+  <link rel="icon" href="../assets/images/cib_koding.png">
+  <link rel="stylesheet" href="../assets/styles/style_form_daftar_magang.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Formulir Pendaftaran Magang</h2>
+    <form action="#" method="post" enctype="multipart/form-data">
+      <div class="grid-2-cols">
+        <div class="form-group">
+          <label for="nama_lengkap">Nama Lengkap</label>
+          <input type="text" id="nama_lengkap" name="nama_lengkap" class="form-input"
+            placeholder="Masukkan nama lengkap Anda" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Alamat Email</label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="contoh@email.com" required>
+        </div>
+      </div>
+
+      <div class="grid-2-cols">
+        <div class="form-group">
+          <label for="telepon">Nomor Telepon</label>
+          <input type="tel" id="telepon" name="telepon" class="form-input" placeholder="+62 812 3456 7890" required>
+        </div>
+        <div class="form-group">
+          <label for="asal_institusi">Asal Institusi/Universitas</label>
+          <input type="text" id="asal_institusi" name="asal_institusi" class="form-input"
+            placeholder="Nama Institusi Anda" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="jurusan">Jurusan</label>
+        <input type="text" id="jurusan" name="jurusan" class="form-input" placeholder="Jurusan Anda" required>
+      </div>
+
+      <div class="form-group">
+        <label for="perusahaan">Nama Perusahaan</label>
+        <input type="text" id="perusahaan" name="perusahaan" class="form-input" placeholder="Nama Perusahaan" required>
+      </div>
+
+      <div class="form-group">
+        <label for="posisi_magang">Posisi Magang yang Dilamar</label>
+        <select id="posisi_magang" name="posisi_magang" class="form-select" required>
+          <option value="">Pilih Posisi</option>
+          <option value="Front-end Developer">Front-end Developer</option>
+          <option value="Back-end Developer">Back-end Developer</option>
+          <option value="UI/UX Designer">UI/UX Designer</option>
+          <option value="Fullstack Developer">Fullstack Developer</option>
+          <option value="Network Engineer">Network Engineer</option>
+          <option value="Junior Network Engineer">Junior Network Engineer</option>
+          <option value="IT Network & Security Specialist">IT Network & Security Specialist</option>
+          <option value="Animator">Animator</option>
+          <option value="Animator Efek Visual (VFX)">Animator Efek Visual (VFX)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cv">Unggah CV (PDF)</label>
+        <input type="file" id="cv" name="cv" accept=".pdf" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label for="surat_lamaran">Unggah Surat Lamaran (PDF)</label>
+        <input type="file" id="surat_lamaran" name="surat_lamaran" accept=".pdf" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label for="portofolio">Unggah Portofolio (PDF, Opsional)</label>
+        <input type="file" id="portofolio" name="portofolio" accept=".pdf" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label for="pesan_tambahan">Pesan Tambahan (Opsional)</label>
+        <textarea id="pesan_tambahan" name="pesan_tambahan" rows="4" class="form-textarea"
+          placeholder="Sampaikan pesan atau informasi tambahan di sini..."></textarea>
+      </div>
+      <a href="../notification/notif_daftarmagang.html">
+        <button type="button" class="form-button">Kirim Pendaftaran</button>
+      </a>
+      <button type="button" class="back-button" onclick="history.back()">Kembali ke Halaman Sebelumnya</button>
+    </form>
+  </div>
+</body>
+
+</html>

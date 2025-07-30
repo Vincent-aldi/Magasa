@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="icon" href="../assets/images/cib_koding.png">
+  <link rel="stylesheet" href="../assets/styles/style_dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="navbar-logo">
+          <img src="../assets/images/cib_koding.png" alt="Magang Logo" class="logo-icon">
+          <span class="logo-text">Magasa</span>
+        </div>
+      </div>
+      <div class="profile-summary">
+        <img src="../assets/images/fp1.jpg" alt="Profile Picture" class="profile-pic">
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="account.html" class="nav-item has-dropdown"><i class="fas fa-user-circle"></i> Account</a></li>
+          <li><a href="dashboard_main.html" class="nav-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+          <li><a href="pendaftaran_magang.html" class="nav-item has-dropdown"><i class="fas fa-clipboard-list"></i> Pendaftaran Magang</a></li>
+          <li><a href="bimbingan.html" class="nav-item"><i class="fas fa-hands-helping"></i> Bimbingan</a></li>
+          <li><a href="laporan_magang.html" class="nav-item has-dropdown"><i class="fas fa-file-alt"></i> Laporan Magang</a></li>
+          <li><a href="penilaian.html" class="nav-item"><i class="fas fa-star"></i> Penilaian</a></li>
+          <li><a href="Log_View.html" class="nav-item active-link"><i class="fa-solid fa-eye"></i> View Magang</a></li>
+          <li><a href="cetak_sertifikat.html" class="nav-item"><i class="fas fa-certificate"></i> Cetak Sertifikat</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="main-header">
+        <div class="navbar-logo header-logo-mobile">
+          <img src="../assets/images/cib_koding.png" alt="Magang Logo" class="logo-icon">
+          <span class="logo-text">Magasa</span>
+        </div>
+        <a href="../index.html"><button class="logout-button">LOGOUT</button></a>
+      </header>
+
+      <div class="content-area">
+        <header class="header-section">
+          <h1>Log View Magang</h1>
+          <p>Informasi Status dan Hasil Penilaian Magang</p>
+        </header>
+
+        <section class="info-section status-section">
+          <h2 class="section-title">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Status Magang
+          </h2>
+          <div class="grid-container">
+            <div class="grid-item">
+              <p class="label">Nama Peserta Magang:</p>
+              <p class="value">Vincentius Aldi Nugraha</p>
+            </div>
+            <div class="grid-item">
+              <p class="label">Program/Posisi:</p>
+              <p class="value">Frontend Developer</p>
+            </div>
+            <div class="grid-item">
+              <p class="label">Status Saat Ini:</p>
+              <p class="value status-active">Aktif</p>
+            </div>
+            <div class="grid-item">
+              <p class="label">Tanggal Mulai:</p>
+              <p class="value">2026-07-01</p>
+            </div>
+            <div class="grid-item">
+              <p class="label">Tanggal Selesai (Estimasi):</p>
+              <p class="value">2026-12-31</p>
+            </div>
+            <div class="grid-item">
+              <p class="label">Sisa Waktu:</p>
+              <p class="value">5 Bulan</p>
+            </div>
+            <div class="grid-item">
+              <p class="label">Pembimbing:</p>
+              <p class="value">Ibu Siti Aminah</p>
+            </div>
+            <div class="grid-item">
+              <p class="label">Departemen:</p>
+              <p class="value">Teknologi Informasi</p>
+            </div>
+          </div>
+          <div class="progress-container">
+            <p class="progress-label">Progres Magang:</p>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" style="width: 50%;"></div>
+            </div>
+            <p class="progress-percentage">50% Selesai</p>
+          </div>
+        </section>
+
+        <section class="info-section assessment-section">
+          <h2 class="section-title">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+            </svg>
+            Hasil Penilaian
+          </h2>
+
+          <div class="summary-box">
+            <h3 class="text-xl font-medium text-purple-700 mb-2">Ringkasan Penilaian Keseluruhan</h3>
+            <p class="text-gray-800 mb-2">
+              Peserta magang menunjukkan kinerja yang sangat baik dalam pemahaman teknis dan kemampuan beradaptasi.
+              Mampu menyelesaikan tugas dengan cepat dan akurat.
+            </p>
+            <p class="font-medium text-gray-800">Nilai Keseluruhan: <span class="highlight-value">A</span></p>
+            <p class="font-medium text-gray-800"> Rekomendasi: <span class="recommendation-value">Direkomendasikan untuk
+                Posisi
+                Penuh Waktu</span></p>
+          </div>
+
+          <h3 class="text-xl font-medium text-purple-700 mb-3">Rincian Kinerja</h3>
+          <div class="table-container">
+            <table class="assessment-table">
+              <thead>
+                <tr>
+                  <th>Kategori Penilaian</th>
+                  <th>Nilai/Rating</th>
+                  <th>Umpan Balik/Komentar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Kemampuan Teknis</td>
+                  <td>Sangat Baik</td>
+                  <td>Memiliki pemahaman mendalam tentang HTML, CSS, dan JavaScript. Mampu mengimplementasikan desain
+                    kompleks.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Problem Solving</td>
+                  <td>Baik</td>
+                  <td>
+                    Mampu mengidentifikasi dan menyelesaikan bug secara mandiri. Perlu sedikit peningkatan dalam
+                    pendekatan masalah yang lebih kompleks.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Kerja Sama Tim</td>
+                  <td>Sangat Baik</td>
+                  <td>Berkomunikasi dengan efektif dan berkontribusi positif dalam diskusi tim.</td>
+                </tr>
+                <tr>
+                  <td>Inisiatif</td>
+                  <td>Baik</td>
+                  <td>Sering mengajukan ide-ide baru dan mengambil inisiatif untuk mempelajari teknologi baru.</td>
+                </tr>
+                <tr>
+                  <td>Kedisiplinan</td>
+                  <td>Sangat Baik</td>
+                  <td>Fokus pada tugas dan mematuhi jadwal kerja.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="button-group no-print">
+            <button onclick="window.print()" class="action-button print-button">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+              </svg>
+              Cetak Hasil Penilaian
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

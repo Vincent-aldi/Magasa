@@ -1,11 +1,11 @@
 :root {
-    --primary-blue: #6A5ACD; /* Adjust to match the button color precisely */
-    --secondary-button-bg: #E0E0E0; /* Light gray for secondary button */
+    --primary-blue: #6A5ACD; 
+    --secondary-button-bg: #E0E0E0;
     --text-dark: #333;
     --text-light-gray: #666;
-    --background-gradient-start: #E6EEF9; /* Lighter blue/purple */
-    --background-gradient-end: #F5E8FB;   /* Lighter pink/purple */
-    --image-shadow: rgba(0, 0, 0, 0.1);
+    --background-gradient-start: #E6EEF9;
+    --background-gradient-end: #F5E8FB;
+    --image-shadow: #0000001a;
 }
 
 * {
@@ -23,7 +23,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* To prevent scrollbar from decorative elements */
+    overflow: hidden;
 }
 
 .container {
@@ -31,15 +31,14 @@ body {
     max-width: 1200px;
     background-color: #fff;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px #00000014;
     display: flex;
     flex-direction: column;
     padding: 30px 40px;
-    position: relative; /* For decorative elements positioning */
-    overflow: hidden; /* Ensure rounded corners clip children */
+    position: relative;
+    overflow: hidden;
 }
 
-/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -58,17 +57,15 @@ body {
     width: 30px;
     height: 30px;
     margin-right: 8px;
-    /* You might need to adjust the SVG fill color if it's not black by default */
 }
 
-/* Hero Section */
 .hero-section {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 20px 0;
-    position: relative; /* For decorative elements within this section */
+    position: relative;
 }
 
 .text-content {
@@ -84,7 +81,7 @@ body {
 }
 
 .text-content h2 {
-    font-size: 2.8rem; /* Adjust as needed */
+    font-size: 2.8rem;
     font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 20px;
@@ -112,59 +109,58 @@ body {
 }
 
 .btn.primary {
-    background-color: transparent; /* Latar belakang transparan */
-    color: #2929e9; /* Warna teks sama dengan warna border */
-    border: 2px solid #2929e9; /* Border dengan warna */
+    background-color: transparent;
+    color: #2929e9;
+    border: 2px solid #2929e9;
     font-weight: 600;
 }
 
 .btn.primary:hover {
-    background-color: #2929e9; /* Latar belakang solid saat hover */
-    color: white; /* Teks putih saat hover */
+    background-color: #2929e9;
+    color: white;
     transform: translateY(-2px);
 }
 
 .btn.secondary {
-    background-color: transparent; /* Latar belakang transparan */
-    color: #27d678; /* Warna teks sama dengan warna border */
-    border: 2px solid #27d678; /* Border dengan warna */
+    background-color: transparent;
+    color: #27d678;
+    border: 2px solid #27d678;
     font-weight: 600;
 }
 
 .btn.secondary:hover {
-    background-color: #27d678; /* Latar belakang solid saat hover */
-    color: white; /* Teks putih saat hover */
+    background-color: #27d678;
+    color: white;
     transform: translateY(-2px);
 }
 
 .image-content {
     flex: 1;
-    min-width: 400px; /* Adjust based on image size */
+    min-width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 1; /* Ensure image is above some decorative elements */
+    z-index: 1;
 }
 
 .main-image {
     max-width: 100%;
     height: auto;
-    border-radius: 20px; /* Rounded corners for the image */
+    border-radius: 20px;
     box-shadow: 0 15px 40px var(--image-shadow);
 }
 
-/* Decorative Icons */
 .decorative-icon {
     position: absolute;
-    font-size: 3rem; /* Adjust icon size */
-    color: rgba(106, 90, 205, 0.2); /* Semi-transparent primary color */
-    z-index: 0; /* Behind the main content */
+    font-size: 3rem;
+    color: #6a5acd33;
+    z-index: 0;
 }
 
 .link-icon {
     top: 50px;
-    right: 350px; /* Adjust position relative to the container */
+    right: 350px;
     transform: rotate(-20deg);
 }
 
@@ -172,17 +168,17 @@ body {
     top: 50px;
     right: 50px;
     font-size: 3.5rem;
-    color: rgba(106, 90, 205, 0.3);
+    color: #6a5acd4d;
 }
 
 .coin-icon {
     bottom: 50px;
     right: 150px;
     font-size: 3.5rem;
-    color: rgba(255, 215, 0, 0.4); /* Gold coin color, semi-transparent */
+    color: #ffd70066;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 992px) {
     .hero-section {
         flex-direction: column;
@@ -243,7 +239,7 @@ body {
     }
 
     .decorative-icon {
-        display: none; /* Hide decorative icons on smaller screens for cleaner layout */
+        display: none;
     }
 }
 

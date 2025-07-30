@@ -1,6 +1,6 @@
 :root {
-    --green-light: #B4FFDA; /* Warna hijau terang untuk panel kiri */
-    --green-button: #6FD29A; /* Warna hijau untuk tombol Daftar */
+    --green-light: #B4FFDA;
+    --green-button: #6FD29A;
     --text-dark: #333;
     --text-light: #555;
     --border-gray: #ccc;
@@ -18,60 +18,60 @@ body {
     font-family: var(--poppins);
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: #f0f2f5; /* Warna latar belakang umum */
+    background-color: #f0f2f5;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden; /* Mengatasi scrollbar jika ada elemen keluar */
+    overflow: hidden;
 }
 
 .container {
     display: flex;
     align-content: center;
     width: 90%;
-    max-width: 1000px; /* Batasi lebar container */
-    height: 90vh; /* Sesuaikan tinggi container */
-    max-height: 700px; /* Batasi tinggi maksimum */
+    max-width: 1000px;
+    height: 90vh;
+    max-height: 700px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Penting untuk radius sudut */
+    box-shadow: 0 10px 30px #0000001a;
+    overflow: hidden;
 }
 
 .left-panel {
-    flex: 1; /* Mengambil setengah lebar */
+    flex: 1;
     background-color: var(--green-light);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Untuk mendorong elemen ke atas dan bawah */
+    justify-content: center;
     align-items: center;
     padding: 40px;
-    position: relative; /* Untuk logo di pojok */
-    padding-top: 100px; /* Sesuaikan nilai ini */
-    padding-bottom: 20px; /* Sesuaikan padding bawah jika perlu */
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 20px;
 }
 
 .header-left-panel {
-  position: absolute; /* Tetapkan posisi absolut di dalam left-panel */
+  position: absolute;
   top: 40px;
   left: 40px;
-  display: flex; /* Untuk menata logo dan tombol kembali berdampingan */
+  display: flex;
   align-items: center;
-  gap: 20px; /* Jarak antara logo dan tombol kembali */
+  gap: 20px;
 }
 
 .navbar-logo {
-  position: static; /* Hapus posisi absolut dari sini */
-  top: auto; /* Reset */
-  left: auto; /* Reset */
+  position: static;
+  top: auto;
+  left: auto;
 }
 
 .back-button {
   display: flex;
   align-items: center;
-  gap: 9px; /* Jarak antara ikon dan teks */
+  gap: 9px;
   text-decoration: none;
-  color: #555; /* Atau warna yang Anda inginkan*/
+  color: #555;
   font-weight: 600;
   font-size: 0.95rem;
   padding: 8px 12px;
@@ -80,12 +80,12 @@ body {
 }
 
 .back-button:hover {
-  background-color: rgba(0, 0, 0, 0.05); /* Sedikit highlight saat hover */
-  color: var(--primary-blue, #6A5ACD); /* Jika ada variabel primary-blue, atau warna lain */
+  background-color: #0000000d;
+  color: var(--primary-blue, #6A5ACD);
 }
 
 .back-button i {
-  font-size: 1rem; /* Ukuran ikon */
+  font-size: 1rem;
 }
 
 .navbar-logo {
@@ -97,14 +97,13 @@ body {
 .navbar-logo .logo-icon {
     width: 30px;
     height: 30px;
-    /* Ubah warna fill SVG jika perlu, atau gunakan ikon yang sudah berwarna hitam */
 }
 
 .left-panel-title {
     font-size: 2.2rem;
     font-weight: 700;
     color: var(--text-dark);
-    margin-top: 0; /* Jarak dari logo */
+    margin-top: 0;
     text-align: center;
 }
 
@@ -121,22 +120,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    flex-grow: 1; /* Agar ilustrasi mengambil sisa ruang */
+    flex-grow: 1;
 }
 
 .illustration-image {
-    max-width: 90%; /* Mengatur lebar maksimum ilustrasi */
+    max-width: 90%;
     height: auto;
-    display: block; /* Menghilangkan ruang kosong di bawah gambar */
-    margin-top: auto; /* Mendorong gambar ke bawah di ruang flex */
-    margin-bottom: 20px; /* Sedikit ruang dari bawah panel */
+    display: block;
+    margin-top: auto;
+    margin-bottom: 20px;
 }
 
-/* Jika tidak ada gambar ilustrasi, gunakan placeholder ini */
 .illustration-placeholder {
     width: 100%;
     height: 250px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: #0000001a;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -148,7 +146,7 @@ body {
 
 
 .right-panel {
-    flex: 1; /* Mengambil setengah lebar */
+    flex: 1;
     background-color: var(--white);
     display: flex;
     justify-content: center;
@@ -158,7 +156,7 @@ body {
 
 .form-wrapper {
     width: 100%;
-    max-width: 400px; /* Batasi lebar form */
+    max-width: 400px;
     text-align: center;
 }
 
@@ -170,21 +168,21 @@ body {
 }
 
 .form-subtitle {
-  font-size: 1rem; /* Ukuran font subtitle */
-  color: rgb(43, 43, 43); /* Warna teks, bisa disesuaikan */
-  margin-bottom: 30px; /* Jarak antara subtitle dan form */
+  font-size: 1rem;
+  color: #2b2b2b;
+  margin-bottom: 30px;
 }
 
 .registration-form {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Jarak antar group form */
+    gap: 20px;
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Jarak antar group form */
+    gap: 10px;
 }
 
 .form-group {
@@ -206,13 +204,13 @@ body {
     border-radius: 8px;
     font-size: 1rem;
     font-family: var(--poppins);
-    outline: none; /* Hilangkan outline saat fokus */
+    outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-group input:focus {
     border-color: var(--green-button);
-    box-shadow: 0 0 0 3px rgba(111, 210, 154, 0.2);
+    box-shadow: 0 0 0 3px #6fd29a33;
 }
 
 .submit-button {
@@ -230,11 +228,9 @@ body {
 }
 
 .submit-button:hover {
-    background-color: #5CB881; /* Sedikit lebih gelap */
+    background-color: #5CB881;
     transform: translateY(-2px);
 }
-
-/* Divider for "OR" */
 
 .divider{
     display: flex;
@@ -263,17 +259,17 @@ body {
 .google-login-button {
     width: 100%;
     padding: 15px 20px;
-    background-color: var(--white); /* White background */
+    background-color: var(--white);
     color: var(--text-dark);
-    border: 1px solid var(--border-gray); /* Gray border */
+    border: 1px solid var(--border-gray);
     border-radius: 10px;
-    font-size: 1.1rem; /* Slightly smaller font than primary button */
+    font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Space between icon and text */
+    gap: 10px;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -288,41 +284,40 @@ a {
 }
 
 .google-icon {
-    width: 24px; /* Size for Google logo */
+    width: 24px;
     height: 24px;
 }
 
-
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column; /* Ubah menjadi satu kolom */
-        height: auto; /* Biarkan tinggi menyesuaikan konten */
+        flex-direction: column;
+        height: auto;
         max-height: unset;
         width: 95%;
-        padding: 0; /* Hapus padding agar panel mengisi penuh */
+        padding: 0;
     }
 
     .left-panel {
         padding: 30px;
-        height: 300px; /* Batasi tinggi panel kiri di mobile */
-        justify-content: flex-start; /* Elemen di atas */
+        height: 300px;
+        justify-content: flex-start;
         align-items: center;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        border-radius: 20px 20px 0 0; /* Hanya radius atas */
+        border-radius: 20px 20px 0 0;
     }
 
     .header-left-panel {
-      position: static; /* Kembali ke posisi normal di mobile */
+      position: static;
       width: 100%;
-      justify-content: space-between; /* Untuk mendorong logo ke kiri dan tombol ke kanan */
-      padding: 0 0px; /* Sesuaikan padding */
+      justify-content: space-between;
+      padding: 0 0px;
       margin-bottom: 20px;
   }
 
   .navbar-logo {
-      margin-bottom: 0; /* Reset margin bottom */
+      margin-bottom: 0;
   }
 
   .back-button {
@@ -331,8 +326,8 @@ a {
   }
 
     .navbar-logo {
-        position: static; /* Kembali ke posisi normal */
-        margin-bottom: 20px; /* Beri jarak dengan judul */
+        position: static;
+        margin-bottom: 20px;
     }
 
     .left-panel-title {
@@ -341,23 +336,23 @@ a {
     }
 
     .illustration {
-        flex-grow: 0; /* Tidak perlu mengambil sisa ruang penuh */
-        height: 150px; /* Batasi tinggi ilustrasi di mobile */
-        overflow: hidden; /* Pastikan gambar tidak meluap */
+        flex-grow: 0;
+        height: 150px;
+        overflow: hidden;
     }
 
     .illustration-image {
-        max-height: 100%; /* Batasi tinggi gambar agar pas */
+        max-height: 100%;
         width: auto;
         margin-top: auto;
-        margin-bottom: auto; /* Pusatkan gambar secara vertikal */
+        margin-bottom: auto;
     }
 
     .right-panel {
         padding: 30px;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        border-radius: 0 0 20px 20px; /* Hanya radius bawah */
+        border-radius: 0 0 20px 20px;
     }
 
     .form-title {
@@ -366,8 +361,8 @@ a {
     }
 
     .form-subtitle {
-      font-size: 0.9rem; /* Sesuaikan ukuran font di responsif */
-      margin-bottom: 20px; /* Sesuaikan margin di responsif */
+      font-size: 0.9rem;
+      margin-bottom: 20px;
   }
 
     .form-group input {

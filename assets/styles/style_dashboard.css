@@ -1,1836 +1,2341 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
-    --sidebar-bg: #fff;
-    --main-bg: #F8F8F8; /* Light gray for main content background */
-    --header-bg: #fff; /* White for header */
-    --primary-green: #6fd29a; /* Green for active links and progress bar */
-    --text-dark: #333;
-    --text-light-gray: #666;
-    --border-light-gray: #E0E0E0;
-    --card-bg: #fff;
-    --poppins: 'Poppins', sans-serif;
-    --logout-red: #E74C3C; /* Red for logout button */
+  --sidebar-bg: #fff;
+  --main-bg: #f8f8f8;
+  --header-bg: #fff;
+  --primary-green: #6fd29a;
+  --text-dark: #333;
+  --text-light-gray: #666;
+  --border-light-gray: #e0e0e0;
+  --card-bg: #fff;
+  --poppins: "Poppins", sans-serif;
+  --logout-red: #e74c3c;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: var(--poppins);
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--main-bg);
-    min-height: 100vh;
-    overflow-y: auto; /* Prevent body scrollbar */
-    display: flex;
+  font-family: var(--poppins);
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--main-bg);
+  min-height: 100vh;
+  overflow-y: auto;
+  display: flex;
 }
 
 .dashboard-container {
-    display: flex;
-    min-height: 100vh;
-    width: 100%;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
 }
 
-/* Sidebar Styling */
+/* Sidebar */
 .sidebar {
-    width: 280px; /* Lebar sidebar */
-    background-color: var(--sidebar-bg);
-    padding: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    z-index: 1000; /* Ensure sidebar is above other content on mobile */
-    position: relative; /* For the absolute positioning of header logo on mobile */
-    overflow-y: auto;
+  width: 280px;
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  position: relative;
+  overflow-y: auto;
 }
 
 .sidebar-header {
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-light-gray);
-    margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-light-gray);
+  margin-bottom: 20px;
 }
 
 .navbar-logo {
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-dark);
 }
 
 .navbar-logo .logo-icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 8px;
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
 }
 
 .profile-summary {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-light-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-light-gray);
 }
 
 .profile-summary .profile-pic {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--primary-green); /* Border around profile pic */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-green);
 }
 
 .sidebar-nav ul {
-    list-style: none;
+  list-style: none;
 }
 
 .sidebar-nav ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .sidebar-nav ul li a {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    text-decoration: none;
-    color: var(--text-dark);
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-weight: 600;
-    font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  text-decoration: none;
+  color: var(--text-dark);
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .sidebar-nav ul li a i {
-    margin-right: 12px;
-    font-size: 1.1rem;
-    color: var(--text-light-gray); /* Icon color */
+  margin-right: 12px;
+  font-size: 1.1rem;
+  color: var(--text-light-gray);
 }
 
 .sidebar-nav ul li a.active-link {
-    background-color: rgba(111, 210, 154, 0.2); /* Light green background */
-    color: var(--primary-green);
+  background-color: #6fd29a33;
+  color: var(--primary-green);
 }
 
 .sidebar-nav ul li a.active-link i {
-    color: var(--primary-green); /* Active icon color */
+  color: var(--primary-green);
 }
 
 .sidebar-nav ul li a:not(.active-link):hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .sidebar-nav ul li .dropdown-arrow {
-    margin-left: auto; /* Push arrow to the right */
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
+  margin-left: auto;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
 }
 
-/* Main Content Styling */
+/*Main Content*/
 .main-content {
-    flex-grow: 1; /* Take up remaining space */
-    display: flex;
-    flex-direction: column;
-    background-color: var(--main-bg);
-    overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-bg);
+  overflow-y: auto;
 }
 
 .main-header {
-    background-color: var(--header-bg);
-    padding: 20px 40px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: flex-end; /* Push logout button to the right */
-    align-items: center;
-    min-height: 70px; /* Ensure minimum height */
+  background-color: var(--header-bg);
+  padding: 20px 40px;
+  box-shadow: 0 2px 5px #0000000d;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 70px;
 }
 
 .header-logo-mobile {
-    display: none; /* Hidden by default, shown on mobile */
-    position: absolute; /* Positioned relative to sidebar on mobile */
-    top: 20px; /* Adjust as needed */
-    left: 20px; /* Adjust as needed */
-    z-index: 1001; /* Ensure it's above other elements */
-    color: var(--text-dark); /* Adjust color for mobile header logo */
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  color: var(--text-dark);
 }
 
 .logout-button {
-    background-color: var(--logout-red);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 0.9rem;
+  background-color: var(--logout-red);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .logout-button:hover {
-    background-color: #C0392B; /* Darker red on hover */
+  background-color: #c0392b;
 }
 
 .content-area {
-    padding: 40px;
-    flex-grow: 1; /* Allow content area to fill remaining space */
-    display: grid;
-    gap: 30px;
-    grid-template-columns: repeat(2, 1fr); /* Two columns layout */
-    grid-template-rows: auto auto auto; /* Rows will size based on content */
-    grid-template-areas:
-        "welcome welcome"
-        "profile detail"
-        "progress detail"; /* Define areas for layout */
+  padding: 40px;
+  flex-grow: 1;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "welcome welcome"
+    "profile detail"
+    "progress detail";
 }
 
 .welcome-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    grid-area: welcome;
-    margin-bottom: 0; /* No extra margin here */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  grid-area: welcome;
+  margin-bottom: 0;
 }
 
 .card {
-    background-color: var(--card-bg);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px #0000000d;
+  padding: 30px;
 }
 
 .profile-card {
-    grid-area: profile;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  grid-area: profile;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .profile-illustration-small {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px; /* Slight rounded corners */
-    object-fit: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .profile-info h2 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: var(--text-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--text-dark);
 }
 
 .profile-info p {
-    font-size: 0.9rem;
-    color: var(--text-light-gray);
-    margin-bottom: 3px;
+  font-size: 0.9rem;
+  color: var(--text-light-gray);
+  margin-bottom: 3px;
 }
 
 .detail-magang-card {
-    grid-area: detail;
+  grid-area: detail;
 }
 
 .detail-magang-card h3,
 .progress-magang-card h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: var(--text-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--text-dark);
 }
 
 .form-field {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-field label {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--text-light-gray);
-    margin-bottom: 8px;
-    font-weight: 600;
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-light-gray);
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
 .form-field input[type="text"],
 .form-field textarea {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid var(--border-light-gray);
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-family: var(--poppins);
-    outline: none;
-    background-color: #F7F7F7; /* Light gray background for readonly fields */
-    color: var(--text-dark);
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid var(--border-light-gray);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: var(--poppins);
+  outline: none;
+  background-color: #f7f7f7;
+  color: var(--text-dark);
 }
 
 .form-field textarea {
-    min-height: 100px;
-    resize: vertical; /* Allow vertical resizing */
+  min-height: 100px;
+  resize: vertical;
 }
 
 .progress-magang-card {
-    grid-area: progress;
+  grid-area: progress;
 }
 
 .status-selection {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
 .status-selection label {
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 600;
 }
 
 .status-selection input[type="radio"] {
-    margin-left: 5px;
-    transform: scale(1.1); /* Slightly larger radio buttons */
+  margin-left: 5px;
+  transform: scale(1.1);
 }
 
 .progress-percentage-label {
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    font-weight: 600;
-    margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .progress-circle-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .progress-circle {
-    width: 150px; /* Size of the circle */
-    height: 150px;
-    border-radius: 50%;
-    background: conic-gradient(var(--primary-green) 87%, var(--border-light-gray) 0%); /* 87% filled */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--primary-green) 87%,
+    var(--border-light-gray) 0%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .progress-circle-inner {
-    width: 130px; /* Size of inner circle for white background */
-    height: 130px;
-    background-color: var(--card-bg);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-green);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  width: 130px;
+  height: 130px;
+  background-color: var(--card-bg);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* daftarmagang */
+/* Daftar Magang */
 .content-area {
-    padding: 40px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column; /* Changed to column for stacking filter and recommendations */
-    gap: 30px;
+  padding: 40px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .card {
-    background-color: var(--card-bg);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px #0000000d;
+  padding: 30px;
 }
 
-/* Filter Section */
 .filter-section h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--text-dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-dark);
 }
 
 .filter-section .filters {
-    display: flex;
-    gap: 20px; /* Space between filter groups */
-    align-items: flex-end; /* Align items at the bottom */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  flex-wrap: wrap;
 }
 
 .filter-group {
-    flex: 1; /* Each filter group takes equal space */
-    min-width: 180px; /* Minimum width for each filter group */
+  flex: 1;
+  min-width: 180px;
 }
 
 .filter-group label {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--text-light-gray);
-    margin-bottom: 8px;
-    font-weight: 600;
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-light-gray);
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
-.filter-group select{
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid var(--border-light-gray);
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-family: var(--poppins);
-    outline: none;
-    background-color: #F7F7F7;
-    color: var(--text-dark);
-    -webkit-appearance: none; /* Remove default select arrow */
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23666%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 20px;
+.filter-group select {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid var(--border-light-gray);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: var(--poppins);
+  outline: none;
+  background-color: #f7f7f7;
+  color: var(--text-dark);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23666%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
 }
 
 .filter-group input[type="text"] {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid var(--border-light-gray);
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-family: var(--poppins);
-    outline: none;
-    background-color: #F7F7F7;
-    color: var(--text-dark);
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid var(--border-light-gray);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: var(--poppins);
+  outline: none;
+  background-color: #f7f7f7;
+  color: var(--text-dark);
 }
 
 .search-button {
-    background-color: #2020f7;
-    color: #ffffff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  background-color: #2020f7;
+  color: #ffffff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .search-button:hover {
-    background-color: #6363f3;
+  background-color: #6363f3;
 }
 
-/* Recommendations Section */
 .recommendations-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Job list on left, detail on right */
-    gap: 30px;
-    align-items: flex-start; /* Align top of grids */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: flex-start;
 }
-
-/* .job-list-container {
-    /* No card class here as per image, just a container for list */
-
 
 .job-list-container h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--text-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-dark);
 }
 
 .job-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .job-card {
-    padding: 10px;
-    cursor: pointer;
-    border: 1px solid transparent; /* Default transparent border */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    display: flex;
-    gap: 15px;
-    align-items: flex-start; /* Align content to the top */
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
 }
 
 .job-card.active-job {
-    border-color: var(--primary-green); /* Green border for active card */
-    background-color: #F0FFF0; /* Very light green background for active */
-    box-shadow: 0 5px 15px rgba(111, 210, 154, 0.1);
+  border-color: var(--primary-green);
+  background-color: #f0fff0;
+  box-shadow: 0 5px 15px #6fd29a1a;
 }
 
 .job-card:hover {
-    border-color: var(--primary-green);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-green);
+  box-shadow: 0 5px 15px #00000014;
 }
 
 .job-card .company-logo img {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    object-fit: contain;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
 .job-card .job-info {
-    flex-grow: 1;
-    text-align: left; /* Ensure text aligns left within info block */
+  flex-grow: 1;
+  text-align: left;
 }
 
 .job-card .job-info h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--text-dark);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--text-dark);
 }
 
 .job-card .job-info p {
-    font-size: 0.85rem;
-    color: var(--text-light-gray);
-    margin-bottom: 3px;
+  font-size: 0.85rem;
+  color: var(--text-light-gray);
+  margin-bottom: 3px;
 }
 
 .job-card .job-info .location i {
-    margin-right: 5px;
-    font-size: 0.8rem;
+  margin-right: 5px;
+  font-size: 0.8rem;
 }
 
 .job-card .read-more {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--primary-green);
-    text-decoration: none;
-    margin-top: 10px;
-    font-weight: 600;
+  display: block;
+  font-size: 0.85rem;
+  color: var(--primary-green);
+  text-decoration: none;
+  margin-top: 10px;
+  font-weight: 600;
 }
 
 .job-card .read-more:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* Job Detail Container */
+/* Job Detail */
 .job-detail-container {
-    position: sticky;
-    top: 20px;
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
-    padding-bottom: 20px;
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding-bottom: 20px;
 }
 
 .job-detail-card {
-    padding: 30px;
+  padding: 30px;
 }
 
 .job-detail-card .company-logo-detail {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .job-detail-card .company-logo-detail img {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    object-fit: contain;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: contain;
 }
 
 .job-detail-card .job-info-detail {
-    text-align: center;
-    margin-bottom: 25px;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 .job-detail-card .job-info-detail h4 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: var(--text-dark);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--text-dark);
 }
 
 .job-detail-card .job-info-detail p {
-    font-size: 0.95rem;
-    color: var(--text-light-gray);
-    margin-bottom: 3px;
+  font-size: 0.95rem;
+  color: var(--text-light-gray);
+  margin-bottom: 3px;
 }
 
 .job-detail-card .job-info-detail .location i {
-    margin-right: 5px;
-    font-size: 0.9rem;
+  margin-right: 5px;
+  font-size: 0.9rem;
 }
 
 .job-description {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-light-gray);
-    margin-bottom: 25px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-light-gray);
+  margin-bottom: 25px;
 }
 
 .job-description p {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .job-description ol {
-    margin-left: 20px;
-    list-style-type: decimal;
-    margin-bottom: 15px;
+  margin-left: 20px;
+  list-style-type: decimal;
+  margin-bottom: 15px;
 }
 
 .job-description ol li {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .apply-button {
-    background-color: var(--apply-button-red);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
-    width: 100%; /* Full width button */
-    text-align: center;
+  background-color: var(--apply-button-red);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
 }
 
 .apply-button:hover {
-    background-color: #D64535;
+  background-color: #d64535;
 }
 
-/* NEW STYLES FOR BIMBINGAN PAGE */
-
+/* Bimbingan Styling */
 .bimbingan-layout {
-    display: flex;
-    gap: 30px; /* Jarak antara jadwal dan detail */
-    flex-wrap: wrap; /* Agar responsif pada layar kecil */
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
 .jadwal-bimbingan-section {
-    flex: 2; /* Mengambil 2 bagian dari total ruang */
-    min-width: 400px; /* Lebar minimum agar tabel tidak terlalu sempit */
-    /* background-color: #f9f9f9; */ /* Contoh jika perlu latar belakang berbeda */
-    padding-right: 15px; /* Sedikit padding internal agar tidak terlalu rapat */
+  flex: 2;
+  min-width: 400px;
+  background-color: #f9f9f9;
+  padding-right: 15px;
 }
 
 .detail-bimbingan-section {
-    flex: 1; /* Mengambil 1 bagian dari total ruang */
-    min-width: 300px; /* Lebar minimum untuk detail */
-    /* background-color: #f9f9f9; */
-    padding-left: 15px; /* Sedikit padding internal */
-    border-left: 1px solid var(--border-color); /* Garis pemisah seperti di gambar */
+  flex: 1;
+  min-width: 300px;
+  background-color: #f9f9f9;
+  padding-left: 15px;
+  border-left: 1px solid var(--border-color);
 }
 
-/* Styling untuk sub-judul dalam setiap section */
 .jadwal-bimbingan-section h2,
 .detail-bimbingan-section h2 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
-    /* border-bottom: 1px solid var(--border-color); */
-    padding-bottom: 5px;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
 }
 
 .ajukan-bimbingan-btn {
-    background-color: #1145ad;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 25px;
-    transition: background-color 0.2s ease;
+  background-color: #1145ad;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+  transition: background-color 0.2s ease;
 }
 
 .ajukan-bimbingan-btn:hover {
-    background-color: #073184;
+  background-color: #073184;
 }
 
 .ajukan-bimbingan-btn .material-icons {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-/* Table Styling */
 .table-responsive {
-    overflow-x: auto; /* Mengizinkan tabel di-scroll horizontal jika terlalu lebar */
+  overflow-x: auto;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
 }
 
 table thead tr {
-    background-color: #f8f8f8; /* Latar belakang header tabel */
+  background-color: #f8f8f8;
 }
 
-table th, table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-    color: var(--text-color);
-    font-size: 0.95rem;
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  color: var(--text-color);
+  font-size: 0.95rem;
 }
 
 table th {
-    font-weight: 600;
-    color: var(--light-text-color);
-    text-transform: uppercase;
+  font-weight: 600;
+  color: var(--light-text-color);
+  text-transform: uppercase;
 }
 
 table tbody tr:hover {
-    background-color: #f0f0f0; /* Efek hover pada baris */
+  background-color: #f0f0f0;
 }
 
-/* Status Badges */
 .status-badge {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-align: center;
-    min-width: 80px; /* Lebar minimum badge */
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 80px;
 }
 
 .status-selesai {
-    background-color: rgba(40, 167, 69, 0.1); /* Hijau muda transparan */
-    color: var(--status-green);
+  background-color: #28a7451a;
+  color: var(--status-green);
 }
 
 .status-dijadwalkan {
-    background-color: rgba(255, 193, 7, 0.1); /* Kuning muda transparan */
-    color: var(--status-orange);
+  background-color: #ffc1071a;
+  color: var(--status-orange);
 }
 
-/* Detail Bimbingan Section */
 .detail-item {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .detail-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 5px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 5px;
 }
 
 .detail-datetime {
-    font-size: 0.95rem;
-    color: var(--light-text-color);
+  font-size: 0.95rem;
+  color: var(--light-text-color);
 }
 
 .detail-label {
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 8px;
 }
 
 .diskusi-list {
-    list-style: none;
-    padding-left: 20px; /* Indentasi untuk bullet kustom */
+  list-style: none;
+  padding-left: 20px;
 }
 
 .diskusi-list li {
-    position: relative;
-    margin-bottom: 5px;
-    color: var(--light-text-color);
-    font-size: 0.95rem;
+  position: relative;
+  margin-bottom: 5px;
+  color: var(--light-text-color);
+  font-size: 0.95rem;
 }
 
 .diskusi-list li::before {
-    content: '\2022'; /* Unicode bullet point */
-    color: var(--primary-color);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+  content: "\2022";
+  color: var(--primary-color);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
 
 .detail-text {
-    line-height: 1.6;
-    color: var(--light-text-color);
-    font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--light-text-color);
+  font-size: 0.95rem;
 }
 
 .comment-section textarea {
-    width: 100%;
-    min-height: 80px;
-    padding: 10px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    color: var(--text-color);
-    resize: vertical; /* Hanya izinkan resize vertikal */
-    outline: none;
-    margin-bottom: 15px;
-    transition: border-color 0.2s ease;
+  width: 100%;
+  min-height: 80px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  resize: vertical;
+  outline: none;
+  margin-bottom: 15px;
+  transition: border-color 0.2s ease;
 }
 
 .comment-section textarea:focus {
-    border-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .kirim-btn {
-    background-color: var(--button-bg); /* Menggunakan warna biru default untuk tombol */
-    color: #fff;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
+  background-color: var(--button-bg);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
 
 .kirim-btn:hover {
-    background-color: var(--button-hover-bg);
+  background-color: var(--button-hover-bg);
 }
 
-/* Modal Basic Styling */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1001; /* Sit on top, higher than job detail panel and overlay */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Fallback color */
-    display: flex; /* Use flexbox to center content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    opacity: 0; /* Start hidden for transition */
-    visibility: hidden; /* Prevent interaction when hidden */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #00000066;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal.show-modal {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: auto; /* Remove margin: auto when using flexbox for centering */
-    padding: 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    width: 90%; /* Responsive width */
-    max-width: 550px; /* Max width for larger screens */
-    animation-name: animatemodal;
-    animation-duration: 0.4s;
-    transform: translateY(-50px); /* Start slightly above center */
-    transition: transform 0.3s ease;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px #00000033;
+  width: 90%;
+  max-width: 550px;
+  animation-name: animatemodal;
+  animation-duration: 0.4s;
+  transform: translateY(-50px);
+  transition: transform 0.3s ease;
 }
 
 .modal.show-modal .modal-content {
-    transform: translateY(0); /* Move to center when shown */
+  transform: translateY(0);
 }
 
-
 .modal-header {
-    padding: 15px 25px;
-    background-color: #fff;
-    color: var(--text-color);
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+  padding: 15px 25px;
+  background-color: #fff;
+  color: var(--text-color);
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .modal-header h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 600;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .close-button {
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s ease;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: #333;
-    text-decoration: none;
+  color: #333;
+  text-decoration: none;
 }
 
 .modal-body {
-    padding: 25px;
+  padding: 25px;
 }
 
 .modal-body .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .modal-body label {
-    display: block;
-    font-weight: 500;
-    color: var(--light-text-color);
-    margin-bottom: 8px;
+  display: block;
+  font-weight: 500;
+  color: var(--light-text-color);
+  margin-bottom: 8px;
 }
 
 .modal-body input[type="date"],
 .modal-body input[type="time"],
 .modal-body input[type="text"],
 .modal-body textarea {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-size: 1rem;
-    color: var(--text-color);
-    outline: none;
-    transition: border-color 0.2s ease;
-    font-family: 'Roboto', sans-serif; /* Pastikan font konsisten */
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color 0.2s ease;
+  font-family: "Roboto", sans-serif;
 }
 
 .modal-body input:focus,
 .modal-body textarea:focus {
-    border-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .form-actions-modal {
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 25px;
 }
 
 .submit-modal-btn {
-    background-color: #2020f7;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
+  background-color: #2020f7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
 
 .submit-modal-btn:hover {
-    background-color: #0909cc;
+  background-color: #0909cc;
 }
 
 .cancel-modal-btn {
-    background-color: #E0E7ED;
-    color: var(--text-color);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease, color 0.2s ease;
+  background-color: #e0e7ed;
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .cancel-modal-btn:hover {
-    background-color: #CAD2D9;
+  background-color: #cad2d9;
 }
 
-/* Keyframe for modal animation */
 @keyframes animatemodal {
-    from {opacity: 0; transform: translateY(-50px);}
-    to {opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Overlay Styling (reuse or adjust based on your existing setup) */
-/* If you already have an overlay for job detail, make sure it's generic enough. */
-/* If not, add this: */
-#modalOverlay { /* Use an ID to distinguish if you have multiple overlays */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* Lower than modal, higher than main content */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+#modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000080;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 #modalOverlay.visible {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
-/* NEW STYLES FOR LAPORAN AKHIR MAGANG */
-
+/* Laporan Akhir Magang Styling */
 .upload-section {
-    padding: 20px;
-    background-color: #f8f8f8; /* Light gray background for the section */
-    border-radius: 8px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* Soft inner shadow */
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px #0000000d;
 }
 
 .upload-section h2 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
 }
 
 .upload-description {
-    font-size: 0.95rem;
-    color: var(--light-text-color);
-    margin-bottom: 25px;
+  font-size: 0.95rem;
+  color: var(--light-text-color);
+  margin-bottom: 25px;
 }
 
 .file-upload-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed var(--border-color); /* Dashed border */
-    border-radius: 8px;
-    padding: 40px 20px;
-    background-color: #fff; /* White background inside box */
-    cursor: pointer;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
-    text-align: center;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 40px 20px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .file-upload-box:hover {
-    border-color: var(--primary-color);
-    background-color: #e6f5f4; /* Light green on hover */
+  border-color: var(--primary-color);
+  background-color: #e6f5f4;
 }
 
 .file-upload-box .material-icons {
-    font-size: 50px;
-    color: var(--light-text-color);
-    margin-bottom: 10px;
+  font-size: 50px;
+  color: var(--light-text-color);
+  margin-bottom: 10px;
 }
 
 .file-upload-box p {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    font-weight: 500;
-    margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 15px;
 }
 
 .select-file-btn {
-    background-color: #007bff; /* Blue button */
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
 
 .select-file-btn:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .uploaded-file-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #e9f5f5; /* Light green background */
-    border: 1px solid #cce7e7;
-    border-radius: 5px;
-    padding: 10px 15px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e9f5f5;
+  border: 1px solid #cce7e7;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 20px;
 }
 
 .uploaded-file-info .file-name {
-    font-size: 0.95rem;
-    color: var(--primary-color);
-    font-weight: 500;
-    flex-grow: 1; /* Allow file name to take available space */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis for long file names */
-    margin-right: 10px;
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 10px;
 }
 
 .uploaded-file-info .delete-file-icon {
-    font-size: 20px;
-    color: #dc3545; /* Red color for delete icon */
-    cursor: pointer;
-    transition: color 0.2s ease;
+  font-size: 20px;
+  color: #dc3545;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .uploaded-file-info .delete-file-icon:hover {
-    color: #b02a37;
+  color: #b02a37;
 }
 
 .upload-buttons-group {
-    display: flex; /* Arrange buttons side-by-side */
-    justify-content: center; 
-    gap: 15px; /* Space between buttons */
-    margin-top: 20px; /* Space from file info/upload box */
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .upload-button {
-    background-color: #2db468; /* Green upload button */
-    color: #fff;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-    display: block; /* Make it a block element to take full width of parent */
-    width: fit-content; /* Adjust width to content */
-    margin-left: auto; /* Push to right */
+  background-color: #2db468;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
 }
 
 .upload-button:hover {
-    background-color: #058755;
+  background-color: #058755;
 }
 
-.submit-file-button { /* Style for the new Kirim button */
-    background-color: #ea2828; /* A standard blue color, adjust if needed */
-    color: #fff;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-    width: fit-content;
+.submit-file-button {
+  background-color: #ea2828;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  width: fit-content;
 }
 
 .submit-file-button:hover {
-    background-color: #b70505;
+  background-color: #b70505;
 }
 
-/* NEW STYLES FOR PENILAIAN MAHASISWA */
-
+/* Penilaian Mahasiswa Styling */
 .form-penilaian-section {
-    padding: 30px;
-    background-color: #f8f8f8; /* Light gray background for the section */
-    border-radius: 8px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.05); /* Soft inner shadow */
-    /* max-width: 900px; Limit width for better readability */
-    width: 100%;
-    margin: 0 auto; /* Center the form section */
+  padding: 30px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px #0000000d;
+  /* max-width: 900px; Limit width for better readability */
+  width: 100%;
+  margin: 0 auto;
 }
 
 .form-penilaian-section h2 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color); /* Separator line */
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .student-info p {
-    font-size: 1rem;
-    color: var(--light-text-color);
-    margin-bottom: 8px;
+  font-size: 1rem;
+  color: var(--light-text-color);
+  margin-bottom: 8px;
 }
 
 .student-info span {
-    font-weight: 500;
-    color: var(--text-color);
+  font-weight: 500;
+  color: var(--text-color);
 }
 
 .form-penilaian-section h3 {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    margin-top: 25px;
-    margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
-/* Table for Rating Criteria */
 .rating-table-responsive {
-    overflow-x: auto; /* Enable horizontal scroll on small screens */
-    margin-bottom: 20px;
+  overflow-x: auto;
+  margin-bottom: 20px;
 }
 
 .form-penilaian-section table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff; /* White background for the table */
-    border-radius: 8px; /* Rounded corners for the table */
-    overflow: hidden; /* Ensures rounded corners apply to content */
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .form-penilaian-section th,
 .form-penilaian-section td {
-    padding: 12px 15px;
-    border: 1px solid #eee; /* Light borders for cells */
-    text-align: left;
-    color: var(--text-color);
-    font-size: 0.95rem;
+  padding: 12px 15px;
+  border: 1px solid #eee;
+  text-align: left;
+  color: var(--text-color);
+  font-size: 0.95rem;
 }
 
 .form-penilaian-section th {
-    background-color: var(--primary-color); /* Green background for table header */
-    color: #fff;
-    font-weight: 600;
-    text-transform: uppercase;
+  background-color: #616161;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .form-penilaian-section td input[type="number"] {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 0.95rem;
-    color: var(--text-color);
-    outline: none;
-    transition: border-color 0.2s ease;
-    /* -moz-appearance: textfield; Hide default number input arrows for Firefox */
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
 .form-penilaian-section td input[type="number"]::-webkit-outer-spin-button,
 .form-penilaian-section td input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none; /* Hide default number input arrows for Chrome/Safari */
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .form-penilaian-section td input[type="number"]:focus {
-    border-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
-/* Textarea for comments */
 .form-group-textarea {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .form-penilaian-section textarea {
-    width: 100%;
-    min-height: 120px; /* Taller textarea */
-    padding: 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    color: var(--text-color);
-    resize: vertical; /* Allow vertical resize only */
-    outline: none;
-    transition: border-color 0.2s ease;
+  width: 100%;
+  min-height: 120px;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
 .form-penilaian-section textarea:focus {
-    border-color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
-/* Submit button */
 .kirim-penilaian-btn {
-    background-color: #2020df; 
-    color: #fff;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-    display: block; 
-    margin: 0 auto; /* Center the button */
+  background-color: #2020df;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  display: block;
+  margin: 0 auto;
 }
 
 .kirim-penilaian-btn:hover {
-    background-color: #0818a5;
+  background-color: #0818a5;
 }
 
-/* NEW STYLES FOR CETAK SERTIFIKAT */
-
+/* Cetak Sertifikat Styling */
 .sertifikat-container {
-    display: flex;
-    gap: 30px; /* Space between the two main panels */
-    align-items: flex-start; /* Align items to the top */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .sertifikat-preview-panel {
-    flex: 1; /* Allows panel to grow and shrink */
-    min-width: 300px; /* Minimum width before wrapping */
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    padding: 25px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  flex: 1;
+  min-width: 300px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: inset 0 0 5px #0000000d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .sertifikat-preview-panel h2 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
-    width: 100%;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .preview-box {
-    width: 100%;
-    max-width: 350px; /* Limit preview box width */
-    height: 450px; /* Fixed height for the preview area */
-    background-color: #f0f4f7; /* Light background for the preview area */
-    border: 1px dashed #c0d8e8; /* Dashed border for the preview area */
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #a0b0c0; 
+  width: 100%;
+  max-width: 350px;
+  height: 450px;
+  background-color: #f0f4f7;
+  border: 1px dashed #c0d8e8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0b0c0;
 }
 
 .preview-box .document-icon {
-    font-size: 100px; /* Large icon for placeholder */
+  font-size: 100px;
 }
 
 .sertifikat-opsi-pengesahan-panel {
-    flex: 1; /* Allows panel to grow and shrink */
-    min-width: 350px; /* Minimum width before wrapping */
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* Space between Opsi Cetak and Riwayat Pengesahan */
+  flex: 1;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .opsi-cetak-section,
 .riwayat-pengesahan-section {
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    padding: 25px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: inset 0 0 5px #0000000d;
 }
 
 .opsi-cetak-section h2,
 .riwayat-pengesahan-section h2 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 15px;
 }
 
 .opsi-cetak-section p {
-    font-size: 0.95rem;
-    color: var(--light-text-color);
-    margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: var(--light-text-color);
+  margin-bottom: 20px;
 }
 
 .cetak-buttons-group {
-    display: flex;
-    flex-direction: column; /* Stack buttons by default */
-    gap: 15px; /* Space between buttons */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .download-pdf-btn,
 .cetak-sertifikat-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Space between icon and text */
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .download-pdf-btn {
-    background-color: #5E5BFF; /* Blue color from image */
-    color: #fff;
+  background-color: #5e5bff;
+  color: #fff;
 }
 
 .download-pdf-btn:hover {
-    background-color: #4A48D1;
+  background-color: #4a48d1;
 }
 
 .cetak-sertifikat-btn {
-    background-color: #FF7B25; /* Orange color from image */
-    color: #fff;
+  background-color: #ff7b25;
+  color: #fff;
 }
 
 .cetak-sertifikat-btn:hover {
-    background-color: #D16521;
+  background-color: #d16521;
 }
 
 .cetak-buttons-group .material-icons {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-/* Approval Table */
 .approval-table-responsive {
-    overflow-x: auto; /* Enable horizontal scroll on small screens */
+  overflow-x: auto;
 }
 
 .riwayat-pengesahan-section table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .riwayat-pengesahan-section th,
 .riwayat-pengesahan-section td {
-    padding: 12px 15px;
-    border: 1px solid #eee;
-    text-align: left;
-    color: var(--text-color);
-    font-size: 0.95rem;
+  padding: 12px 15px;
+  border: 1px solid #eee;
+  text-align: left;
+  color: var(--text-color);
+  font-size: 0.95rem;
 }
 
 .riwayat-pengesahan-section th {
-    background-color: var(--primary-color);
-    color: #000000;
-    font-weight: 600;
-    text-transform: uppercase;
+  background-color: var(--primary-color);
+  color: #000000;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .status-badge {
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-align: center;
-    display: inline-block; /* Allow padding and border */
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
 }
 
 .status-badge.disetujui {
-    background-color: #e6f5f4; /* Light green */
-    color: var(--primary-color); /* Darker green text */
-    border: 1px solid var(--primary-color);
+  background-color: #e6f5f4;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
-/* Responsive adjustments */
+/* Side Detail Panel */
+.job-detail-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -5px 0 15px #0000001a;
+  overflow-y: auto;
+  transition: width 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-detail-panel.open {
+  width: 900px;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.company-logo-large img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: contain;
+  padding: 5px;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.detail-actions .icon-button {
+  cursor: pointer;
+  font-size: 30px;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.detail-actions .icon-button:hover {
+  color: #333;
+}
+
+.detail-content {
+  padding: 30px;
+  flex-grow: 1;
+}
+
+.detail-job-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.detail-company-name {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.detail-company-name .view-all-jobs {
+  margin-left: 10px;
+  color: #00a699;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.detail-location,
+.detail-role,
+.detail-type,
+.detail-salary,
+.detail-posted-info {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.detail-location .material-icons,
+.detail-role .material-icons,
+.detail-type .material-icons,
+.detail-salary .material-icons {
+  font-size: 20px;
+  margin-right: 8px;
+  color: #888;
+}
+
+.detail-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+.apply-button {
+  background-color: #ea1010;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.apply-button:hover {
+  background-color: #d61515;
+}
+
+.section-title {
+  margin-top: 35px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.benefit-list,
+.requirement-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.benefit-list li,
+.requirement-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 1rem;
+}
+
+.benefit-list li::before,
+.requirement-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  background-color: #00a699;
+  border-radius: 50%;
+}
+
+.job-description p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #555;
+  font-size: 1rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.skill-tag {
+  background-color: #e6f5f4;
+  color: #00a699;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000066;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Notification */
+.notif-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.notif-card,
+.notif-card {
+  padding: 30px;
+}
+
+.notif-card h3,
+.notif-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+}
+
+.notif-card p,
+.notif-card p {
+  font-size: 16px;
+  color: var(--text-light-gray);
+  line-height: 1.5;
+}
+
+/* View Magang */
+.header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header-section h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.header-section p {
+  font-size: 1.125rem;
+  color: #4b5563;
+}
+
+.info-section {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 #0000000d;
+  border-width: 1px;
+}
+
+.status-section {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.assessment-section {
+  background-color: #f5f3ff;
+  border-color: #b4b9fe;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.status-section .section-title {
+  color: #049241;
+}
+
+.assessment-section .section-title {
+  color: #1d0691;
+}
+
+.section-title svg {
+  height: 1.75rem;
+  width: 1.75rem;
+  margin-right: 0.75rem;
+  color: #049241;
+}
+
+.assessment-section .section-title svg {
+  color: #1d0691;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  color: #4b5563;
+}
+
+.grid-item p {
+  margin-bottom: 0.25rem;
+}
+
+.grid-item .label {
+  font-weight: 500;
+}
+
+.grid-item .value {
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.grid-item .status-active {
+  color: #16a34a;
+}
+
+.progress-container {
+  margin-top: 1.5rem;
+}
+
+.progress-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  height: 0.875rem;
+}
+
+.progress-bar-fill {
+  background-color: #3b82f6;
+  height: 0.875rem;
+  border-radius: 9999px;
+}
+
+.progress-percentage {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.summary-box {
+  margin-bottom: 1.5rem;
+  background-color: #f3e8ff;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  border-width: 1px;
+  border-color: #8488fc;
+}
+
+.summary-box h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #222dce;
+  margin-bottom: 0.5rem;
+}
+
+.summary-box p {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.summary-box .highlight-value {
+  font-weight: 700;
+  color: #3121a8;
+}
+
+.summary-box .recommendation-value {
+  font-weight: 700;
+  color: #15803d;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: #c084fc;
+}
+
+.assessment-table {
+  min-width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.assessment-table thead {
+  background-color: #f5f3ff;
+}
+
+.assessment-table th {
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #2222ce;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.assessment-table th:first-child {
+  border-top-left-radius: 0.5rem;
+}
+
+.assessment-table th:last-child {
+  border-top-right-radius: 0.5rem;
+}
+
+.assessment-table tbody {
+  background-color: #ffffff;
+  border-top: 1px solid #e9d5ff;
+}
+
+.assessment-table td {
+  padding: 1rem 1.5rem;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.assessment-table td:first-child {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.button-group {
+  margin-top: 1.5rem;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 #0000000d;
+  color: #ffffff;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.action-button:focus {
+  box-shadow: 0 0 0 3px #6d28d980;
+}
+
+.action-button svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.print-button {
+  background-color: #9333ea;
+}
+
+.print-button:hover {
+  background-color: #7e22ce;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Responsive */
 @media (max-width: 992px) {
-    .sidebar {
-        width: 80px; /* Collapsed sidebar width */
-        padding: 20px 10px;
-    }
+  .sidebar {
+    width: 80px;
+    padding: 20px 10px;
+  }
 
-    .sidebar-header {
-        display: none; /* Hide header on collapsed sidebar */
-    }
+  .sidebar-header {
+    display: none;
+  }
 
-    .profile-summary {
-        display: none; /* Hide profile summary on collapsed sidebar */
-    }
+  .profile-summary {
+    display: none;
+  }
 
-    .sidebar-nav ul li a {
-        justify-content: center; /* Center icons */
-        font-size: 0.8rem;
-        padding: 12px 0px; /* Adjust padding */
-        text-align: center;
-    }
+  .sidebar-nav ul li a {
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 12px 0px;
+    text-align: center;
+  }
 
-    .sidebar-nav ul li a i {
-        margin-right: 0;
-        margin-bottom: 5px; /* Space between icon and text */
-        display: block; /* Make icon take full width */
-    }
+  .sidebar-nav ul li a i {
+    margin-right: 0;
+    margin-bottom: 5px;
+    display: block;
+  }
 
-    .sidebar-nav ul li a .dropdown-arrow {
-        display: none; /* Hide dropdown arrows */
-    }
+  .sidebar-nav ul li a .dropdown-arrow {
+    display: none;
+  }
 
-    .sidebar .logo-text {
-        display: none; /* Hide logo text */
-    }
+  .sidebar .logo-text {
+    display: none;
+  }
 
-    .sidebar-nav ul li a:hover .logo-text,
-    .sidebar-nav ul li a.active-link .logo-text {
-        display: none; /* Ensure text remains hidden on hover/active */
-    }
+  .sidebar-nav ul li a:hover .logo-text,
+  .sidebar-nav ul li a.active-link .logo-text {
+    display: none;
+  }
 
-    .main-content {
-        margin-left: 0; /* No margin from sidebar */
-    }
+  .main-content {
+    margin-left: 0;
+  }
 
-    .header-logo-mobile {
-        display: flex; /* Show mobile header logo */
-        position: static; /* Position normally within header */
-        margin-right: auto; /* Push logout button to the right */
-    }
+  .header-logo-mobile {
+    display: flex;
+    position: static;
+    margin-right: auto;
+  }
 
-    .content-area {
-        grid-template-columns: 1fr; /* Single column layout */
-        grid-template-areas:
-            "welcome"
-            "profile"
-            "detail"
-            "progress"; /* Stack cards vertically */
-        padding: 20px;
-        gap: 20px;
-    }
+  .content-area {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "welcome"
+      "profile"
+      "detail"
+      "progress";
+    padding: 20px;
+    gap: 20px;
+  }
 
-    .profile-card {
-        flex-direction: column;
-        text-align: center;
-    }
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .profile-info {
-        text-align: center;
-    }
+  .profile-info {
+    text-align: center;
+  }
 
-    .status-selection {
-        flex-wrap: wrap; /* Allow radio buttons to wrap */
-        justify-content: center;
-    }
+  .status-selection {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-    .filter-section .filters {
-        flex-direction: column; /* Stack filters vertically */
-        align-items: stretch; /* Stretch to full width */
-    }
+  .filter-section .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-    .filter-group {
-        width: 100%; /* Take full width */
-        min-width: unset; /* Remove min-width */
-    }
+  .filter-group {
+    width: 100%;
+    min-width: unset;
+  }
 
-    .search-button {
-        width: 100%; /* Full width button */
-    }
+  .search-button {
+    width: 100%;
+  }
 
-    .recommendations-section {
-        grid-template-columns: 2fr; /* Single column layout */
-        gap: 20px;
-    }
+  .recommendations-section {
+    grid-template-columns: 2fr;
+    gap: 20px;
+  }
 
-    /* .job-list-container {
-        /* No specific changes needed, it will take full width */
+  .job-detail-container {
+    position: static;
+    max-height: unset;
+    overflow-y: visible;
+  }
 
-    .job-detail-container {
-        position: static; /* Remove sticky on mobile */
-        max-height: unset; /* Remove max-height */
-        overflow-y: visible; /* Allow content to flow naturally */
-    }
+  .bimbingan-layout {
+    flex-direction: column;
+  }
 
-    /* .job-detail-card {
-        /* No specific changes needed */
-    
-    .bimbingan-layout {
-        flex-direction: column; 
-    }
+  .jadwal-bimbingan-section,
+  .detail-bimbingan-section {
+    flex: none;
+    width: 100%;
+    min-width: unset;
+    padding-left: 0;
+    padding-right: 0;
+    border-left: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+  }
 
-    .jadwal-bimbingan-section,
-    .detail-bimbingan-section {
-        flex: none; /* Remove flex sizing */
-        width: 100%; /* Take full width */
-        min-width: unset; /* Remove min-width constraints */
-        padding-left: 0;
-        padding-right: 0;
-        border-left: none; /* Remove left border */
-        border-bottom: 1px solid var(--border-color); /* Add bottom border between sections */
-        padding-bottom: 30px;
-    }
+  .detail-bimbingan-section {
+    border-bottom: none;
+    padding-top: 30px;
+  }
 
-    .detail-bimbingan-section {
-        border-bottom: none; /* No border for the last section */
-        padding-top: 30px; /* Add padding top when stacked */
-    }
+  .job-detail-panel.open {
+    width: 80%;
+  }
+
+  .saved-search-card,
+  .saved-jobs-card {
+    padding: 15px;
+  }
+
+  .saved-search-card h3,
+  .saved-jobs-card h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .saved-search-card p,
+  .saved-jobs-card p {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .sidebar {
-        position: fixed; /* Fix sidebar on small screens */
-        height: 100%;
-        left: -80px; /* Hide sidebar by default */
-        transition: left 0.3s ease;
-    }
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    left: -80px;
+    transition: left 0.3s ease;
+  }
 
-    /* Add a class to show sidebar when needed (e.g., via a toggle button) */
-    /* .sidebar.active {
-        left: 0;
-    } */
+  .sidebar.active {
+    left: 0;
+  }
 
-    .main-header {
-        padding: 15px 20px;
-    }
+  .main-header {
+    padding: 15px 20px;
+  }
 
-    .logout-button {
-        padding: 8px 15px;
-        font-size: 0.8rem;
-    }
+  .logout-button {
+    padding: 8px 15px;
+    font-size: 0.8rem;
+  }
 
-    .welcome-title {
-        font-size: 1.5rem;
-    }
+  .welcome-title {
+    font-size: 1.5rem;
+  }
 
-    .card {
-        padding: 20px;
-    }
+  .card {
+    padding: 20px;
+  }
 
-    .profile-info h2 {
-        font-size: 1.1rem;
-    }
+  .profile-info h2 {
+    font-size: 1.1rem;
+  }
 
-    .profile-info p {
-        font-size: 0.8rem;
-    }
+  .profile-info p {
+    font-size: 0.8rem;
+  }
 
-    .detail-magang-card h3,
-    .progress-magang-card h3 {
-        font-size: 1.1rem;
-        margin-bottom: 15px;
-    }
+  .detail-magang-card h3,
+  .progress-magang-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
 
-    .form-field label {
-        font-size: 0.85rem;
-    }
+  .form-field label {
+    font-size: 0.85rem;
+  }
 
-    .form-field input,
-    .form-field textarea {
-        font-size: 0.85rem;
-        padding: 8px 12px;
-    }
+  .form-field input,
+  .form-field textarea {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
 
-    .status-selection label {
-        font-size: 0.85rem;
-    }
+  .status-selection label {
+    font-size: 0.85rem;
+  }
 
-    .progress-circle {
-        width: 120px;
-        height: 120px;
-    }
+  .progress-circle {
+    width: 120px;
+    height: 120px;
+  }
 
-    .progress-circle-inner {
-        width: 100px;
-        height: 100px;
-        font-size: 1.8rem;
-    }
+  .progress-circle-inner {
+    width: 100px;
+    height: 100px;
+    font-size: 1.8rem;
+  }
 
-    .filter-section h2 {
-        font-size: 1.3rem;
-    }
+  .filter-section h2 {
+    font-size: 1.3rem;
+  }
 
-    .filter-group label {
-        font-size: 0.85rem;
-    }
+  .filter-group label {
+    font-size: 0.85rem;
+  }
 
-    .filter-group select,
-    .filter-group input {
-        font-size: 0.85rem;
-        padding: 8px 12px;
-    }
+  .filter-group select,
+  .filter-group input {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
 
-    .search-button {
-        font-size: 0.9rem;
-        padding: 10px 20px;
-    }
+  .search-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
 
-    .job-list-container h3 {
-        font-size: 1.1rem;
-    }
+  .job-list-container h3 {
+    font-size: 1.1rem;
+  }
 
-    .job-card {
-        padding: 15px;
-    }
+  .job-card {
+    padding: 15px;
+  }
 
-    .job-card .company-logo img {
-        width: 30px;
-        height: 30px;
-    }
+  .job-card .company-logo img {
+    width: 30px;
+    height: 30px;
+  }
 
-    .job-card .job-info h4 {
-        font-size: 1rem;
-    }
+  .job-card .job-info h4 {
+    font-size: 1rem;
+  }
 
-    .job-card .job-info p,
-    .job-card .read-more {
-        font-size: 0.8rem;
-    }
+  .job-card .job-info p,
+  .job-card .read-more {
+    font-size: 0.8rem;
+  }
 
-    .job-detail-card .company-logo-detail img {
-        width: 50px;
-        height: 50px;
-    }
+  .job-detail-card .company-logo-detail img {
+    width: 50px;
+    height: 50px;
+  }
 
-    .job-detail-card .job-info-detail h4 {
-        font-size: 1.2rem;
-    }
+  .job-detail-card .job-info-detail h4 {
+    font-size: 1.2rem;
+  }
 
-    .job-detail-card .job-info-detail p {
-        font-size: 0.85rem;
-    }
+  .job-detail-card .job-info-detail p {
+    font-size: 0.85rem;
+  }
 
-    .job-description {
-        font-size: 0.8rem;
-    }
+  .job-description {
+    font-size: 0.8rem;
+  }
 
-    .apply-button {
-        font-size: 0.9rem;
-        padding: 10px 20px;
-    }
+  .apply-button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
 
-     .content-area {
-        margin: 20px;
-        padding: 20px;
-    }
-    .jadwal-bimbingan-section h2,
-    .detail-bimbingan-section h2 {
-        font-size: 1.3rem;
-    }
-    .ajukan-bimbingan-btn {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-    table th, table td {
-        padding: 10px 12px;
-        font-size: 0.85rem;
-    }
-    .status-badge {
-        padding: 3px 8px;
-        font-size: 0.75rem;
-    }
-    .detail-job-title {
-        font-size: 1.6rem;
-    }
+  .content-area {
+    margin: 20px;
+    padding: 20px;
+  }
+  .jadwal-bimbingan-section h2,
+  .detail-bimbingan-section h2 {
+    font-size: 1.3rem;
+  }
+  .ajukan-bimbingan-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+  table th,
+  table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  .status-badge {
+    padding: 3px 8px;
+    font-size: 0.75rem;
+  }
+  .detail-job-title {
+    font-size: 1.6rem;
+  }
 
-     .file-upload-box {
-        padding: 30px 15px;
-    }
-    .file-upload-box .material-icons {
-        font-size: 40px;
-    }
-    .file-upload-box p {
-        font-size: 1rem;
-    }
-    .select-file-btn, .upload-button {
-        padding: 8px 15px;
-        font-size: 0.95rem;
-    }
-    .upload-button {
-        width: 100%; 
-        margin-left: 0;
-    }
+  .file-upload-box {
+    padding: 30px 15px;
+  }
+  .file-upload-box .material-icons {
+    font-size: 40px;
+  }
+  .file-upload-box p {
+    font-size: 1rem;
+  }
+  .select-file-btn,
+  .upload-button {
+    padding: 8px 15px;
+    font-size: 0.95rem;
+  }
+  .upload-button {
+    width: 100%;
+    margin-left: 0;
+  }
 
-    .upload-buttons-group {
-        flex-direction: column; /* Stack buttons vertically on small screens */
-        align-items: stretch; /* Make buttons stretch to full width */
-        gap: 10px; /* Smaller gap when stacked */
-    }
+  .upload-buttons-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
 
-    .upload-button, .submit-file-button {
-        width: 100%; /* Full width on small screens */
-        padding: 10px 20px; /* Slightly smaller padding */
-        font-size: 1rem;
-    }
+  .upload-button,
+  .submit-file-button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 
-    .form-penilaian-section {
-        padding: 20px;
-    }
-    .form-penilaian-section h2 {
-        font-size: 1.3rem;
-    }
-    .student-info p {
-        font-size: 0.9rem;
-    }
-    .form-penilaian-section h3 {
-        font-size: 1.1rem;
-    }
-    .form-penilaian-section th,
-    .form-penilaian-section td {
-        padding: 10px 12px;
-        font-size: 0.85rem;
-    }
-    .form-penilaian-section td input[type="number"] {
-        padding: 6px 8px;
-        font-size: 0.85rem;
-    }
-    .form-penilaian-section textarea {
-        min-height: 100px;
-        padding: 12px;
-        font-size: 0.9rem;
-    }
-    .kirim-penilaian-btn {
-        padding: 10px 25px;
-        font-size: 1rem;
-        width: 100%; /* Full width on small screens */
-    }
+  .form-penilaian-section {
+    padding: 20px;
+  }
+  .form-penilaian-section h2 {
+    font-size: 1.3rem;
+  }
+  .student-info p {
+    font-size: 0.9rem;
+  }
+  .form-penilaian-section h3 {
+    font-size: 1.1rem;
+  }
+  .form-penilaian-section th,
+  .form-penilaian-section td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  .form-penilaian-section td input[type="number"] {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+  }
+  .form-penilaian-section textarea {
+    min-height: 100px;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  .kirim-penilaian-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+    width: 100%;
+  }
 
-    .sertifikat-container {
-        flex-direction: column; /* Stack panels vertically on small screens */
-        gap: 20px;
-    }
-    .sertifikat-preview-panel,
-    .sertifikat-opsi-pengesahan-panel {
-        min-width: unset; /* Remove min-width constraint */
-        width: 100%; /* Take full width */
-    }
-    .sertifikat-preview-panel {
-        padding: 20px;
-    }
-    .sertifikat-preview-panel h2 {
-        font-size: 1.3rem;
-    }
-    .preview-box {
-        height: 350px; /* Adjust height for smaller screens */
-    }
-    .preview-box .document-icon {
-        font-size: 80px;
-    }
+  .sertifikat-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .sertifikat-preview-panel,
+  .sertifikat-opsi-pengesahan-panel {
+    min-width: unset;
+    width: 100%;
+  }
+  .sertifikat-preview-panel {
+    padding: 20px;
+  }
+  .sertifikat-preview-panel h2 {
+    font-size: 1.3rem;
+  }
+  .preview-box {
+    height: 350px;
+  }
+  .preview-box .document-icon {
+    font-size: 80px;
+  }
 
-    .opsi-cetak-section,
-    .riwayat-pengesahan-section {
-        padding: 20px;
-    }
-    .opsi-cetak-section h2,
-    .riwayat-pengesahan-section h2 {
-        font-size: 1.3rem;
-    }
-    .cetak-buttons-group {
-        flex-direction: column; /* Stack buttons always on small screens */
-        gap: 10px;
-    }
-    .download-pdf-btn,
-    .cetak-sertifikat-btn {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-    .riwayat-pengesahan-section th,
-    .riwayat-pengesahan-section td {
-        padding: 10px 12px;
-        font-size: 0.85rem;
-    }
-    .status-badge {
-        padding: 4px 8px;
-        font-size: 0.8rem;
-    }
+  .opsi-cetak-section,
+  .riwayat-pengesahan-section {
+    padding: 20px;
+  }
+  .opsi-cetak-section h2,
+  .riwayat-pengesahan-section h2 {
+    font-size: 1.3rem;
+  }
+  .cetak-buttons-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .download-pdf-btn,
+  .cetak-sertifikat-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  .riwayat-pengesahan-section th,
+  .riwayat-pengesahan-section td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  .status-badge {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+
+  .job-detail-panel.open {
+    width: 100%;
+  }
+  .detail-content {
+    padding: 20px;
+  }
+  .detail-job-title {
+    font-size: 1.6rem;
+  }
+  .apply-button,
+  .save-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* Responsive for Modal */
+/* Responsive Untuk Modal */
 @media (max-width: 600px) {
-    .modal-content {
-        width: 95%; /* Make modal slightly wider on small screens */
-    }
-    .modal-header h2 {
-        font-size: 1.3rem;
-    }
-    .modal-body {
-        padding: 20px;
-    }
-    .form-actions-modal {
-        flex-direction: column-reverse; /* Stack buttons on small screens */
-        gap: 10px;
-    }
-    .submit-modal-btn, .cancel-modal-btn {
-        width: 100%; /* Full width buttons */
-        text-align: center;
-    }
+  .modal-content {
+    width: 95%;
+  }
+  .modal-header h2 {
+    font-size: 1.3rem;
+  }
+  .modal-body {
+    padding: 20px;
+  }
+  .form-actions-modal {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .submit-modal-btn,
+  .cancel-modal-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
